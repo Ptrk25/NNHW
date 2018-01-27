@@ -61,5 +61,10 @@ namespace NNH
         {
 
         }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
