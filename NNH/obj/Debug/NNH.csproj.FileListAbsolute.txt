@@ -1,0 +1,9 @@
+C:\Users\Patrick\source\repos\NNH\NNH\bin\Debug\NNH.exe
+C:\Users\Patrick\source\repos\NNH\NNH\bin\Debug\NNH.pdb
+C:\Users\Patrick\source\repos\NNH\NNH\obj\Debug\NNH.csprojResolveAssemblyReference.cache
+C:\Users\Patrick\source\repos\NNH\NNH\obj\Debug\NNH.Form1.resources
+C:\Users\Patrick\source\repos\NNH\NNH\obj\Debug\NNH.Properties.Resources.resources
+C:\Users\Patrick\source\repos\NNH\NNH\obj\Debug\NNH.csproj.GenerateResource.Cache
+C:\Users\Patrick\source\repos\NNH\NNH\obj\Debug\NNH.csproj.CoreCompileInputs.cache
+C:\Users\Patrick\source\repos\NNH\NNH\obj\Debug\NNH.exe
+C:\Users\Patrick\source\repos\NNH\NNH\obj\Debug\NNH.pdb
