@@ -7,3 +7,16 @@ C:\Users\Patrick\source\repos\NNH\NNH\obj\Debug\NNH.csproj.GenerateResource.Cach
 C:\Users\Patrick\source\repos\NNH\NNH\obj\Debug\NNH.csproj.CoreCompileInputs.cache
 C:\Users\Patrick\source\repos\NNH\NNH\obj\Debug\NNH.exe
 C:\Users\Patrick\source\repos\NNH\NNH\obj\Debug\NNH.pdb
+D:\c#\NNHW\NNH\bin\Debug\NNH.exe
+D:\c#\NNHW\NNH\bin\Debug\NNH.pdb
+D:\c#\NNHW\NNH\bin\Debug\MathNet.Numerics.dll
+D:\c#\NNHW\NNH\bin\Debug\System.Threading.dll
+D:\c#\NNHW\NNH\bin\Debug\MathNet.Numerics.xml
+D:\c#\NNHW\NNH\bin\Debug\System.Threading.xml
+D:\c#\NNHW\NNH\obj\Debug\NNH.csprojResolveAssemblyReference.cache
+D:\c#\NNHW\NNH\obj\Debug\NNH.FrmMain.resources
+D:\c#\NNHW\NNH\obj\Debug\NNH.Properties.Resources.resources
+D:\c#\NNHW\NNH\obj\Debug\NNH.csproj.GenerateResource.Cache
+D:\c#\NNHW\NNH\obj\Debug\NNH.csproj.CoreCompileInputs.cache
+D:\c#\NNHW\NNH\obj\Debug\NNH.exe
+D:\c#\NNHW\NNH\obj\Debug\NNH.pdb
