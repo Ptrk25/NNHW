@@ -32,6 +32,7 @@ namespace NNH
             Application.AddMessageFilter(this);
             controlsToMove.Add(this);
             controlsToMove.Add(this.pnlTitlebar);
+
         }
 
         // Fensterverschiebungscode

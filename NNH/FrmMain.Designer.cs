@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.btnClose = new System.Windows.Forms.Button();
             this.pnlTitlebar = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -79,15 +78,16 @@
             // 
             // btnClose
             // 
+            this.btnClose.AutoSize = true;
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(789, 0);
+            this.btnClose.Image = global::NNH.Properties.Resources.Close_Window_48px;
+            this.btnClose.Location = new System.Drawing.Point(794, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(61, 53);
+            this.btnClose.Size = new System.Drawing.Size(56, 53);
             this.btnClose.TabIndex = 0;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.button1_Click);
@@ -107,26 +107,27 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(12, 11);
+            this.lblTitle.Location = new System.Drawing.Point(13, 10);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(284, 33);
+            this.lblTitle.Size = new System.Drawing.Size(225, 26);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Handschrifterkennung";
             this.lblTitle.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnMinimize
             // 
+            this.btnMinimize.AutoSize = true;
             this.btnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMinimize.FlatAppearance.BorderSize = 0;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
-            this.btnMinimize.Location = new System.Drawing.Point(728, 0);
+            this.btnMinimize.Image = global::NNH.Properties.Resources.Minimize_Window_48px;
+            this.btnMinimize.Location = new System.Drawing.Point(738, 0);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(61, 53);
+            this.btnMinimize.Size = new System.Drawing.Size(56, 53);
             this.btnMinimize.TabIndex = 1;
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.button1_Click_1);
@@ -207,11 +208,13 @@
             this.btnMNISTOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMNISTOpen.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMNISTOpen.ForeColor = System.Drawing.Color.White;
-            this.btnMNISTOpen.Location = new System.Drawing.Point(12, 174);
+            this.btnMNISTOpen.Image = global::NNH.Properties.Resources.Open_48px;
+            this.btnMNISTOpen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMNISTOpen.Location = new System.Drawing.Point(12, 151);
             this.btnMNISTOpen.Name = "btnMNISTOpen";
-            this.btnMNISTOpen.Size = new System.Drawing.Size(170, 32);
+            this.btnMNISTOpen.Size = new System.Drawing.Size(170, 55);
             this.btnMNISTOpen.TabIndex = 7;
-            this.btnMNISTOpen.Text = "Öffnen";
+            this.btnMNISTOpen.Text = "        Öffnen";
             this.btnMNISTOpen.UseVisualStyleBackColor = false;
             // 
             // pnlMNISTHeader
