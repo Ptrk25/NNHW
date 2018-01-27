@@ -371,7 +371,7 @@
             // 
             // picBoxArrow
             // 
-            this.picBoxArrow.Location = new System.Drawing.Point(278, 367);
+            this.picBoxArrow.Location = new System.Drawing.Point(271, 397);
             this.picBoxArrow.Name = "picBoxArrow";
             this.picBoxArrow.Size = new System.Drawing.Size(100, 50);
             this.picBoxArrow.TabIndex = 3;
