@@ -73,6 +73,16 @@ namespace NNH.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Hand_With_Pen_48px {
+            get {
+                object obj = ResourceManager.GetObject("Hand With Pen_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Minimize_Window_48px {
             get {
                 object obj = ResourceManager.GetObject("Minimize Window_48px", resourceCulture);
@@ -86,6 +96,16 @@ namespace NNH.Properties {
         internal static System.Drawing.Bitmap Open_48px {
             get {
                 object obj = ResourceManager.GetObject("Open_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Right_Arrow_96px {
+            get {
+                object obj = ResourceManager.GetObject("Right Arrow_96px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -115,5 +115,11 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hand With Pen_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Right Arrow_96px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

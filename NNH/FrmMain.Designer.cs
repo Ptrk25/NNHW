@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnClose = new System.Windows.Forms.Button();
             this.pnlTitlebar = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btnMinimize = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlMNIST = new System.Windows.Forms.Panel();
             this.lblEntriesCount = new System.Windows.Forms.Label();
@@ -52,15 +50,18 @@
             this.pnlNNHeader = new System.Windows.Forms.Panel();
             this.lblNN = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.picBoxArrow = new System.Windows.Forms.PictureBox();
             this.pnlRecognizedNum = new System.Windows.Forms.Panel();
             this.pnlRegocnizedNumHeader = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlImage = new System.Windows.Forms.Panel();
-            this.picBoxImage = new System.Windows.Forms.PictureBox();
             this.pnlImgHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.picBoxArrow = new System.Windows.Forms.PictureBox();
+            this.picBoxImage = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.pnlTitlebar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlMNIST.SuspendLayout();
@@ -68,33 +69,19 @@
             this.pnlNN.SuspendLayout();
             this.pnlNNHeader.SuspendLayout();
             this.pnlMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxArrow)).BeginInit();
             this.pnlRecognizedNum.SuspendLayout();
             this.pnlRegocnizedNumHeader.SuspendLayout();
             this.pnlImage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxImage)).BeginInit();
             this.pnlImgHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxArrow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnClose
-            // 
-            this.btnClose.AutoSize = true;
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::NNH.Properties.Resources.Close_Window_48px;
-            this.btnClose.Location = new System.Drawing.Point(794, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(56, 53);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.button1_Click);
             // 
             // pnlTitlebar
             // 
             this.pnlTitlebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pnlTitlebar.Controls.Add(this.pictureBox1);
             this.pnlTitlebar.Controls.Add(this.lblTitle);
             this.pnlTitlebar.Controls.Add(this.btnMinimize);
             this.pnlTitlebar.Controls.Add(this.btnClose);
@@ -109,28 +96,12 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(13, 10);
+            this.lblTitle.Location = new System.Drawing.Point(58, 15);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(225, 26);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Handschrifterkennung";
             this.lblTitle.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.AutoSize = true;
-            this.btnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMinimize.FlatAppearance.BorderSize = 0;
-            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Image = global::NNH.Properties.Resources.Minimize_Window_48px;
-            this.btnMinimize.Location = new System.Drawing.Point(738, 0);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(56, 53);
-            this.btnMinimize.TabIndex = 1;
-            this.btnMinimize.UseVisualStyleBackColor = false;
-            this.btnMinimize.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // panel2
             // 
@@ -204,17 +175,17 @@
             // btnMNISTOpen
             // 
             this.btnMNISTOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(175)))), ((int)(((byte)(100)))));
+            this.btnMNISTOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnMNISTOpen.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnMNISTOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMNISTOpen.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMNISTOpen.ForeColor = System.Drawing.Color.White;
-            this.btnMNISTOpen.Image = global::NNH.Properties.Resources.Open_48px;
             this.btnMNISTOpen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMNISTOpen.Location = new System.Drawing.Point(12, 151);
+            this.btnMNISTOpen.Location = new System.Drawing.Point(12, 174);
             this.btnMNISTOpen.Name = "btnMNISTOpen";
-            this.btnMNISTOpen.Size = new System.Drawing.Size(170, 55);
+            this.btnMNISTOpen.Size = new System.Drawing.Size(170, 32);
             this.btnMNISTOpen.TabIndex = 7;
-            this.btnMNISTOpen.Text = "        Öffnen";
+            this.btnMNISTOpen.Text = "Öffnen";
             this.btnMNISTOpen.UseVisualStyleBackColor = false;
             // 
             // pnlMNISTHeader
@@ -372,14 +343,6 @@
             this.pnlMain.Size = new System.Drawing.Size(650, 524);
             this.pnlMain.TabIndex = 3;
             // 
-            // picBoxArrow
-            // 
-            this.picBoxArrow.Location = new System.Drawing.Point(271, 397);
-            this.picBoxArrow.Name = "picBoxArrow";
-            this.picBoxArrow.Size = new System.Drawing.Size(100, 50);
-            this.picBoxArrow.TabIndex = 3;
-            this.picBoxArrow.TabStop = false;
-            // 
             // pnlRecognizedNum
             // 
             this.pnlRecognizedNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -419,15 +382,6 @@
             this.pnlImage.Size = new System.Drawing.Size(221, 239);
             this.pnlImage.TabIndex = 1;
             // 
-            // picBoxImage
-            // 
-            this.picBoxImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picBoxImage.Location = new System.Drawing.Point(0, 49);
-            this.picBoxImage.Name = "picBoxImage";
-            this.picBoxImage.Size = new System.Drawing.Size(219, 188);
-            this.picBoxImage.TabIndex = 1;
-            this.picBoxImage.TabStop = false;
-            // 
             // pnlImgHeader
             // 
             this.pnlImgHeader.Controls.Add(this.label1);
@@ -456,6 +410,66 @@
             this.panel1.Size = new System.Drawing.Size(623, 244);
             this.panel1.TabIndex = 0;
             // 
+            // picBoxArrow
+            // 
+            this.picBoxArrow.Image = global::NNH.Properties.Resources.Right_Arrow_96px;
+            this.picBoxArrow.Location = new System.Drawing.Point(279, 357);
+            this.picBoxArrow.Name = "picBoxArrow";
+            this.picBoxArrow.Size = new System.Drawing.Size(94, 95);
+            this.picBoxArrow.TabIndex = 3;
+            this.picBoxArrow.TabStop = false;
+            // 
+            // picBoxImage
+            // 
+            this.picBoxImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBoxImage.Location = new System.Drawing.Point(0, 49);
+            this.picBoxImage.Name = "picBoxImage";
+            this.picBoxImage.Size = new System.Drawing.Size(219, 188);
+            this.picBoxImage.TabIndex = 1;
+            this.picBoxImage.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::NNH.Properties.Resources.Hand_With_Pen_48px;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(52, 53);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.AutoSize = true;
+            this.btnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.Image = global::NNH.Properties.Resources.Minimize_Window_48px;
+            this.btnMinimize.Location = new System.Drawing.Point(738, 0);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(56, 53);
+            this.btnMinimize.TabIndex = 1;
+            this.btnMinimize.UseVisualStyleBackColor = false;
+            this.btnMinimize.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnClose
+            // 
+            this.btnClose.AutoSize = true;
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::NNH.Properties.Resources.Close_Window_48px;
+            this.btnClose.Location = new System.Drawing.Point(794, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(56, 53);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -481,14 +495,15 @@
             this.pnlNNHeader.ResumeLayout(false);
             this.pnlNNHeader.PerformLayout();
             this.pnlMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxArrow)).EndInit();
             this.pnlRecognizedNum.ResumeLayout(false);
             this.pnlRegocnizedNumHeader.ResumeLayout(false);
             this.pnlRegocnizedNumHeader.PerformLayout();
             this.pnlImage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxImage)).EndInit();
             this.pnlImgHeader.ResumeLayout(false);
             this.pnlImgHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxArrow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -528,6 +543,7 @@
         private System.Windows.Forms.Panel pnlImgHeader;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
