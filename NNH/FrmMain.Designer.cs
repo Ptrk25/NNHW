@@ -49,11 +49,11 @@
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlRecognizedNum = new System.Windows.Forms.Panel();
             this.pnlRegocnizedNumHeader = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblRecognizedNum = new System.Windows.Forms.Label();
             this.pnlImage = new System.Windows.Forms.Panel();
             this.pnlImgHeader = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblImage = new System.Windows.Forms.Label();
+            this.pnlNNStatistic = new System.Windows.Forms.Panel();
             this.picBoxArrow = new System.Windows.Forms.PictureBox();
             this.picBoxImage = new System.Windows.Forms.PictureBox();
             this.btnMNISTOpen = new System.Windows.Forms.Button();
@@ -73,7 +73,7 @@
             this.pnlRegocnizedNumHeader.SuspendLayout();
             this.pnlImage.SuspendLayout();
             this.pnlImgHeader.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlNNStatistic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
@@ -292,7 +292,7 @@
             this.pnlMain.Controls.Add(this.picBoxArrow);
             this.pnlMain.Controls.Add(this.pnlRecognizedNum);
             this.pnlMain.Controls.Add(this.pnlImage);
-            this.pnlMain.Controls.Add(this.panel1);
+            this.pnlMain.Controls.Add(this.pnlNNStatistic);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(200, 47);
             this.pnlMain.Name = "pnlMain";
@@ -310,23 +310,23 @@
             // 
             // pnlRegocnizedNumHeader
             // 
-            this.pnlRegocnizedNumHeader.Controls.Add(this.label2);
+            this.pnlRegocnizedNumHeader.Controls.Add(this.lblRecognizedNum);
             this.pnlRegocnizedNumHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlRegocnizedNumHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlRegocnizedNumHeader.Name = "pnlRegocnizedNumHeader";
             this.pnlRegocnizedNumHeader.Size = new System.Drawing.Size(219, 49);
             this.pnlRegocnizedNumHeader.TabIndex = 0;
             // 
-            // label2
+            // lblRecognizedNum
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lato", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(53, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Erkannte Zahl";
+            this.lblRecognizedNum.AutoSize = true;
+            this.lblRecognizedNum.Font = new System.Drawing.Font("Lato", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecognizedNum.ForeColor = System.Drawing.Color.White;
+            this.lblRecognizedNum.Location = new System.Drawing.Point(53, 15);
+            this.lblRecognizedNum.Name = "lblRecognizedNum";
+            this.lblRecognizedNum.Size = new System.Drawing.Size(118, 21);
+            this.lblRecognizedNum.TabIndex = 2;
+            this.lblRecognizedNum.Text = "Erkannte Zahl";
             // 
             // pnlImage
             // 
@@ -340,32 +340,32 @@
             // 
             // pnlImgHeader
             // 
-            this.pnlImgHeader.Controls.Add(this.label1);
+            this.pnlImgHeader.Controls.Add(this.lblImage);
             this.pnlImgHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlImgHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlImgHeader.Name = "pnlImgHeader";
             this.pnlImgHeader.Size = new System.Drawing.Size(219, 49);
             this.pnlImgHeader.TabIndex = 0;
             // 
-            // label1
+            // lblImage
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lato", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(85, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 21);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Bild";
+            this.lblImage.AutoSize = true;
+            this.lblImage.Font = new System.Drawing.Font("Lato", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImage.ForeColor = System.Drawing.Color.White;
+            this.lblImage.Location = new System.Drawing.Point(85, 14);
+            this.lblImage.Name = "lblImage";
+            this.lblImage.Size = new System.Drawing.Size(40, 21);
+            this.lblImage.TabIndex = 2;
+            this.lblImage.Text = "Bild";
             // 
-            // panel1
+            // pnlNNStatistic
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnNNLearn);
-            this.panel1.Location = new System.Drawing.Point(15, 13);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(623, 244);
-            this.panel1.TabIndex = 0;
+            this.pnlNNStatistic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlNNStatistic.Controls.Add(this.btnNNLearn);
+            this.pnlNNStatistic.Location = new System.Drawing.Point(15, 13);
+            this.pnlNNStatistic.Name = "pnlNNStatistic";
+            this.pnlNNStatistic.Size = new System.Drawing.Size(623, 244);
+            this.pnlNNStatistic.TabIndex = 0;
             // 
             // picBoxArrow
             // 
@@ -512,7 +512,7 @@
             this.pnlImage.ResumeLayout(false);
             this.pnlImgHeader.ResumeLayout(false);
             this.pnlImgHeader.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.pnlNNStatistic.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).EndInit();
@@ -549,12 +549,12 @@
         private System.Windows.Forms.PictureBox picBoxArrow;
         private System.Windows.Forms.Panel pnlRecognizedNum;
         private System.Windows.Forms.Panel pnlRegocnizedNumHeader;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblRecognizedNum;
         private System.Windows.Forms.Panel pnlImage;
         private System.Windows.Forms.PictureBox picBoxImage;
         private System.Windows.Forms.Panel pnlImgHeader;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblImage;
+        private System.Windows.Forms.Panel pnlNNStatistic;
         private System.Windows.Forms.PictureBox picBoxIcon;
     }
 }
