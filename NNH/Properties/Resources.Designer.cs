@@ -63,26 +63,6 @@ namespace NNH.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Close_Window_48px {
-            get {
-                object obj = ResourceManager.GetObject("Close Window_48px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Hand_With_Pen_48px {
-            get {
-                object obj = ResourceManager.GetObject("Hand With Pen_48px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icons8_Close_Window_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_Close_Window_32", resourceCulture);
@@ -146,16 +126,6 @@ namespace NNH.Properties {
         internal static System.Drawing.Bitmap icons8_Save_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_Save_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Minimize_Window_48px {
-            get {
-                object obj = ResourceManager.GetObject("Minimize Window_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
