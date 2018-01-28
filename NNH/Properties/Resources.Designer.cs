@@ -83,6 +83,16 @@ namespace NNH.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_Delete_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Delete_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_Document_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_Document_32", resourceCulture);

@@ -41,11 +41,11 @@
             this.pnlNN = new System.Windows.Forms.Panel();
             this.lblErrorCount = new System.Windows.Forms.Label();
             this.lblGenCount = new System.Windows.Forms.Label();
-            this.btnNNLearn = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
             this.lblGen = new System.Windows.Forms.Label();
             this.pnlNNHeader = new System.Windows.Forms.Panel();
             this.lblNN = new System.Windows.Forms.Label();
+            this.btnNNLearn = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlRecognizedNum = new System.Windows.Forms.Panel();
             this.pnlRegocnizedNumHeader = new System.Windows.Forms.Panel();
@@ -54,14 +54,52 @@
             this.pnlImgHeader = new System.Windows.Forms.Panel();
             this.lblImage = new System.Windows.Forms.Label();
             this.pnlNNStatistic = new System.Windows.Forms.Panel();
+            this.lblRecognizedNumBig = new System.Windows.Forms.Label();
+            this.rbAutomatic = new System.Windows.Forms.RadioButton();
+            this.rbManuell = new System.Windows.Forms.RadioButton();
+            this.pnlNNStatisticHeader = new System.Windows.Forms.Panel();
+            this.pnlSpeed = new System.Windows.Forms.Panel();
+            this.rbFast = new System.Windows.Forms.RadioButton();
+            this.rbSlow = new System.Windows.Forms.RadioButton();
             this.picBoxArrow = new System.Windows.Forms.PictureBox();
             this.picBoxImage = new System.Windows.Forms.PictureBox();
+            this.btnImgDelete = new System.Windows.Forms.Button();
             this.btnMNISTOpen = new System.Windows.Forms.Button();
             this.btnNNSave = new System.Windows.Forms.Button();
             this.btnNNOpen = new System.Windows.Forms.Button();
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.pnl0 = new System.Windows.Forms.Panel();
+            this.lbl0 = new System.Windows.Forms.Label();
+            this.lblP0 = new System.Windows.Forms.Label();
+            this.pnl1 = new System.Windows.Forms.Panel();
+            this.lblP1 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.pnl2 = new System.Windows.Forms.Panel();
+            this.lnlP2 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.pnl3 = new System.Windows.Forms.Panel();
+            this.lblP3 = new System.Windows.Forms.Label();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.pnl4 = new System.Windows.Forms.Panel();
+            this.lblP4 = new System.Windows.Forms.Label();
+            this.lbl4 = new System.Windows.Forms.Label();
+            this.pnl9 = new System.Windows.Forms.Panel();
+            this.lblP9 = new System.Windows.Forms.Label();
+            this.lbl9 = new System.Windows.Forms.Label();
+            this.pnl8 = new System.Windows.Forms.Panel();
+            this.lblP8 = new System.Windows.Forms.Label();
+            this.lbl8 = new System.Windows.Forms.Label();
+            this.pnl7 = new System.Windows.Forms.Panel();
+            this.lblP7 = new System.Windows.Forms.Label();
+            this.lbl7 = new System.Windows.Forms.Label();
+            this.pnl6 = new System.Windows.Forms.Panel();
+            this.lblP6 = new System.Windows.Forms.Label();
+            this.lbl6 = new System.Windows.Forms.Label();
+            this.pnl5 = new System.Windows.Forms.Panel();
+            this.lblP5 = new System.Windows.Forms.Label();
+            this.lbl5 = new System.Windows.Forms.Label();
             this.pnlTitlebar.SuspendLayout();
             this.pnlOptions.SuspendLayout();
             this.pnlMNIST.SuspendLayout();
@@ -74,9 +112,21 @@
             this.pnlImage.SuspendLayout();
             this.pnlImgHeader.SuspendLayout();
             this.pnlNNStatistic.SuspendLayout();
+            this.pnlNNStatisticHeader.SuspendLayout();
+            this.pnlSpeed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
+            this.pnl0.SuspendLayout();
+            this.pnl1.SuspendLayout();
+            this.pnl2.SuspendLayout();
+            this.pnl3.SuspendLayout();
+            this.pnl4.SuspendLayout();
+            this.pnl9.SuspendLayout();
+            this.pnl8.SuspendLayout();
+            this.pnl7.SuspendLayout();
+            this.pnl6.SuspendLayout();
+            this.pnl5.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTitlebar
@@ -102,7 +152,6 @@
             this.lblTitle.Size = new System.Drawing.Size(204, 25);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Handschrifterkennung";
-            this.lblTitle.Click += new System.EventHandler(this.label1_Click);
             // 
             // pnlOptions
             // 
@@ -187,7 +236,7 @@
             // 
             this.lblMNIST.AutoSize = true;
             this.lblMNIST.Font = new System.Drawing.Font("Lato", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMNIST.ForeColor = System.Drawing.Color.White;
+            this.lblMNIST.ForeColor = System.Drawing.Color.Black;
             this.lblMNIST.Location = new System.Drawing.Point(24, 15);
             this.lblMNIST.Name = "lblMNIST";
             this.lblMNIST.Size = new System.Drawing.Size(152, 21);
@@ -229,20 +278,6 @@
             this.lblGenCount.TabIndex = 5;
             this.lblGenCount.Text = "0";
             // 
-            // btnNNLearn
-            // 
-            this.btnNNLearn.BackColor = System.Drawing.Color.DimGray;
-            this.btnNNLearn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnNNLearn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNNLearn.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNNLearn.ForeColor = System.Drawing.Color.White;
-            this.btnNNLearn.Location = new System.Drawing.Point(3, 207);
-            this.btnNNLearn.Name = "btnNNLearn";
-            this.btnNNLearn.Size = new System.Drawing.Size(170, 32);
-            this.btnNNLearn.TabIndex = 3;
-            this.btnNNLearn.Text = "Lernen";
-            this.btnNNLearn.UseVisualStyleBackColor = false;
-            // 
             // lblError
             // 
             this.lblError.AutoSize = true;
@@ -279,12 +314,27 @@
             // 
             this.lblNN.AutoSize = true;
             this.lblNN.Font = new System.Drawing.Font("Lato", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNN.ForeColor = System.Drawing.Color.White;
+            this.lblNN.ForeColor = System.Drawing.Color.Black;
             this.lblNN.Location = new System.Drawing.Point(11, 13);
             this.lblNN.Name = "lblNN";
             this.lblNN.Size = new System.Drawing.Size(177, 21);
             this.lblNN.TabIndex = 0;
             this.lblNN.Text = "Neuronales Netzwerk";
+            // 
+            // btnNNLearn
+            // 
+            this.btnNNLearn.BackColor = System.Drawing.Color.Transparent;
+            this.btnNNLearn.Enabled = false;
+            this.btnNNLearn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnNNLearn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNNLearn.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNNLearn.ForeColor = System.Drawing.Color.Black;
+            this.btnNNLearn.Location = new System.Drawing.Point(482, 8);
+            this.btnNNLearn.Name = "btnNNLearn";
+            this.btnNNLearn.Size = new System.Drawing.Size(129, 32);
+            this.btnNNLearn.TabIndex = 3;
+            this.btnNNLearn.Text = "Lernen";
+            this.btnNNLearn.UseVisualStyleBackColor = false;
             // 
             // pnlMain
             // 
@@ -301,7 +351,9 @@
             // 
             // pnlRecognizedNum
             // 
+            this.pnlRecognizedNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.pnlRecognizedNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlRecognizedNum.Controls.Add(this.lblRecognizedNumBig);
             this.pnlRecognizedNum.Controls.Add(this.pnlRegocnizedNumHeader);
             this.pnlRecognizedNum.Location = new System.Drawing.Point(417, 272);
             this.pnlRecognizedNum.Name = "pnlRecognizedNum";
@@ -310,6 +362,7 @@
             // 
             // pnlRegocnizedNumHeader
             // 
+            this.pnlRegocnizedNumHeader.BackColor = System.Drawing.Color.Orange;
             this.pnlRegocnizedNumHeader.Controls.Add(this.lblRecognizedNum);
             this.pnlRegocnizedNumHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlRegocnizedNumHeader.Location = new System.Drawing.Point(0, 0);
@@ -321,7 +374,7 @@
             // 
             this.lblRecognizedNum.AutoSize = true;
             this.lblRecognizedNum.Font = new System.Drawing.Font("Lato", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecognizedNum.ForeColor = System.Drawing.Color.White;
+            this.lblRecognizedNum.ForeColor = System.Drawing.Color.Black;
             this.lblRecognizedNum.Location = new System.Drawing.Point(53, 15);
             this.lblRecognizedNum.Name = "lblRecognizedNum";
             this.lblRecognizedNum.Size = new System.Drawing.Size(118, 21);
@@ -330,6 +383,7 @@
             // 
             // pnlImage
             // 
+            this.pnlImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.pnlImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlImage.Controls.Add(this.picBoxImage);
             this.pnlImage.Controls.Add(this.pnlImgHeader);
@@ -340,6 +394,8 @@
             // 
             // pnlImgHeader
             // 
+            this.pnlImgHeader.BackColor = System.Drawing.Color.Orange;
+            this.pnlImgHeader.Controls.Add(this.btnImgDelete);
             this.pnlImgHeader.Controls.Add(this.lblImage);
             this.pnlImgHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlImgHeader.Location = new System.Drawing.Point(0, 0);
@@ -351,7 +407,7 @@
             // 
             this.lblImage.AutoSize = true;
             this.lblImage.Font = new System.Drawing.Font("Lato", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImage.ForeColor = System.Drawing.Color.White;
+            this.lblImage.ForeColor = System.Drawing.Color.Black;
             this.lblImage.Location = new System.Drawing.Point(85, 14);
             this.lblImage.Name = "lblImage";
             this.lblImage.Size = new System.Drawing.Size(40, 21);
@@ -360,12 +416,117 @@
             // 
             // pnlNNStatistic
             // 
+            this.pnlNNStatistic.BackColor = System.Drawing.Color.LightGray;
             this.pnlNNStatistic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlNNStatistic.Controls.Add(this.btnNNLearn);
+            this.pnlNNStatistic.Controls.Add(this.pnl9);
+            this.pnlNNStatistic.Controls.Add(this.pnl4);
+            this.pnlNNStatistic.Controls.Add(this.pnl8);
+            this.pnlNNStatistic.Controls.Add(this.pnl3);
+            this.pnlNNStatistic.Controls.Add(this.pnl7);
+            this.pnlNNStatistic.Controls.Add(this.pnl2);
+            this.pnlNNStatistic.Controls.Add(this.pnl6);
+            this.pnlNNStatistic.Controls.Add(this.pnl1);
+            this.pnlNNStatistic.Controls.Add(this.pnl5);
+            this.pnlNNStatistic.Controls.Add(this.pnl0);
+            this.pnlNNStatistic.Controls.Add(this.pnlNNStatisticHeader);
             this.pnlNNStatistic.Location = new System.Drawing.Point(15, 13);
             this.pnlNNStatistic.Name = "pnlNNStatistic";
             this.pnlNNStatistic.Size = new System.Drawing.Size(623, 244);
             this.pnlNNStatistic.TabIndex = 0;
+            // 
+            // lblRecognizedNumBig
+            // 
+            this.lblRecognizedNumBig.BackColor = System.Drawing.Color.Transparent;
+            this.lblRecognizedNumBig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblRecognizedNumBig.Font = new System.Drawing.Font("Lato", 71.99999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecognizedNumBig.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblRecognizedNumBig.Location = new System.Drawing.Point(0, 49);
+            this.lblRecognizedNumBig.Name = "lblRecognizedNumBig";
+            this.lblRecognizedNumBig.Size = new System.Drawing.Size(219, 195);
+            this.lblRecognizedNumBig.TabIndex = 1;
+            this.lblRecognizedNumBig.Text = "0";
+            this.lblRecognizedNumBig.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // rbAutomatic
+            // 
+            this.rbAutomatic.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbAutomatic.AutoSize = true;
+            this.rbAutomatic.Checked = true;
+            this.rbAutomatic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbAutomatic.Font = new System.Drawing.Font("Lato", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbAutomatic.ForeColor = System.Drawing.Color.Black;
+            this.rbAutomatic.Location = new System.Drawing.Point(12, 9);
+            this.rbAutomatic.Name = "rbAutomatic";
+            this.rbAutomatic.Size = new System.Drawing.Size(105, 31);
+            this.rbAutomatic.TabIndex = 6;
+            this.rbAutomatic.TabStop = true;
+            this.rbAutomatic.Text = "Automatisch";
+            this.rbAutomatic.UseVisualStyleBackColor = true;
+            // 
+            // rbManuell
+            // 
+            this.rbManuell.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbManuell.AutoSize = true;
+            this.rbManuell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbManuell.Font = new System.Drawing.Font("Lato", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbManuell.ForeColor = System.Drawing.Color.Black;
+            this.rbManuell.Location = new System.Drawing.Point(123, 9);
+            this.rbManuell.Name = "rbManuell";
+            this.rbManuell.Size = new System.Drawing.Size(75, 31);
+            this.rbManuell.TabIndex = 7;
+            this.rbManuell.Text = "Manuell";
+            this.rbManuell.UseVisualStyleBackColor = true;
+            // 
+            // pnlNNStatisticHeader
+            // 
+            this.pnlNNStatisticHeader.BackColor = System.Drawing.Color.Orange;
+            this.pnlNNStatisticHeader.Controls.Add(this.pnlSpeed);
+            this.pnlNNStatisticHeader.Controls.Add(this.rbAutomatic);
+            this.pnlNNStatisticHeader.Controls.Add(this.btnNNLearn);
+            this.pnlNNStatisticHeader.Controls.Add(this.rbManuell);
+            this.pnlNNStatisticHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlNNStatisticHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlNNStatisticHeader.Name = "pnlNNStatisticHeader";
+            this.pnlNNStatisticHeader.Size = new System.Drawing.Size(621, 49);
+            this.pnlNNStatisticHeader.TabIndex = 8;
+            // 
+            // pnlSpeed
+            // 
+            this.pnlSpeed.Controls.Add(this.rbSlow);
+            this.pnlSpeed.Controls.Add(this.rbFast);
+            this.pnlSpeed.Location = new System.Drawing.Point(220, 0);
+            this.pnlSpeed.Name = "pnlSpeed";
+            this.pnlSpeed.Size = new System.Drawing.Size(244, 49);
+            this.pnlSpeed.TabIndex = 8;
+            // 
+            // rbFast
+            // 
+            this.rbFast.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbFast.AutoSize = true;
+            this.rbFast.Checked = true;
+            this.rbFast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbFast.Font = new System.Drawing.Font("Lato", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFast.ForeColor = System.Drawing.Color.Black;
+            this.rbFast.Location = new System.Drawing.Point(49, 9);
+            this.rbFast.Name = "rbFast";
+            this.rbFast.Size = new System.Drawing.Size(68, 31);
+            this.rbFast.TabIndex = 7;
+            this.rbFast.Text = "Schnell";
+            this.rbFast.UseVisualStyleBackColor = true;
+            // 
+            // rbSlow
+            // 
+            this.rbSlow.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbSlow.AutoSize = true;
+            this.rbSlow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbSlow.Font = new System.Drawing.Font("Lato", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbSlow.ForeColor = System.Drawing.Color.Black;
+            this.rbSlow.Location = new System.Drawing.Point(123, 9);
+            this.rbSlow.Name = "rbSlow";
+            this.rbSlow.Size = new System.Drawing.Size(80, 31);
+            this.rbSlow.TabIndex = 8;
+            this.rbSlow.Text = "Langsam";
+            this.rbSlow.UseVisualStyleBackColor = true;
             // 
             // picBoxArrow
             // 
@@ -378,12 +539,24 @@
             // 
             // picBoxImage
             // 
+            this.picBoxImage.BackColor = System.Drawing.Color.Transparent;
             this.picBoxImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picBoxImage.Location = new System.Drawing.Point(0, 49);
             this.picBoxImage.Name = "picBoxImage";
             this.picBoxImage.Size = new System.Drawing.Size(219, 194);
             this.picBoxImage.TabIndex = 1;
             this.picBoxImage.TabStop = false;
+            // 
+            // btnImgDelete
+            // 
+            this.btnImgDelete.FlatAppearance.BorderSize = 0;
+            this.btnImgDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImgDelete.Image = global::NNH.Properties.Resources.icons8_Delete_32;
+            this.btnImgDelete.Location = new System.Drawing.Point(170, 0);
+            this.btnImgDelete.Name = "btnImgDelete";
+            this.btnImgDelete.Size = new System.Drawing.Size(49, 49);
+            this.btnImgDelete.TabIndex = 3;
+            this.btnImgDelete.UseVisualStyleBackColor = true;
             // 
             // btnMNISTOpen
             // 
@@ -463,7 +636,7 @@
             this.btnMinimize.Size = new System.Drawing.Size(45, 47);
             this.btnMinimize.TabIndex = 1;
             this.btnMinimize.UseVisualStyleBackColor = false;
-            this.btnMinimize.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // btnClose
             // 
@@ -479,7 +652,347 @@
             this.btnClose.Size = new System.Drawing.Size(48, 47);
             this.btnClose.TabIndex = 0;
             this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.button1_Click);
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // pnl0
+            // 
+            this.pnl0.BackColor = System.Drawing.Color.White;
+            this.pnl0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl0.Controls.Add(this.lblP0);
+            this.pnl0.Controls.Add(this.lbl0);
+            this.pnl0.Location = new System.Drawing.Point(40, 55);
+            this.pnl0.Name = "pnl0";
+            this.pnl0.Size = new System.Drawing.Size(105, 88);
+            this.pnl0.TabIndex = 9;
+            // 
+            // lbl0
+            // 
+            this.lbl0.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl0.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl0.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl0.Location = new System.Drawing.Point(0, 0);
+            this.lbl0.Name = "lbl0";
+            this.lbl0.Size = new System.Drawing.Size(103, 64);
+            this.lbl0.TabIndex = 0;
+            this.lbl0.Text = "0";
+            this.lbl0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblP0
+            // 
+            this.lblP0.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblP0.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP0.Location = new System.Drawing.Point(0, 62);
+            this.lblP0.Name = "lblP0";
+            this.lblP0.Size = new System.Drawing.Size(103, 24);
+            this.lblP0.TabIndex = 1;
+            this.lblP0.Text = "0,00 %";
+            this.lblP0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnl1
+            // 
+            this.pnl1.BackColor = System.Drawing.Color.White;
+            this.pnl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl1.Controls.Add(this.lblP1);
+            this.pnl1.Controls.Add(this.lbl1);
+            this.pnl1.Location = new System.Drawing.Point(151, 55);
+            this.pnl1.Name = "pnl1";
+            this.pnl1.Size = new System.Drawing.Size(105, 88);
+            this.pnl1.TabIndex = 10;
+            // 
+            // lblP1
+            // 
+            this.lblP1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblP1.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP1.Location = new System.Drawing.Point(0, 62);
+            this.lblP1.Name = "lblP1";
+            this.lblP1.Size = new System.Drawing.Size(103, 24);
+            this.lblP1.TabIndex = 1;
+            this.lblP1.Text = "0,00 %";
+            this.lblP1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl1
+            // 
+            this.lbl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl1.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl1.Location = new System.Drawing.Point(0, 0);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(103, 64);
+            this.lbl1.TabIndex = 0;
+            this.lbl1.Text = "1";
+            this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnl2
+            // 
+            this.pnl2.BackColor = System.Drawing.Color.White;
+            this.pnl2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl2.Controls.Add(this.lnlP2);
+            this.pnl2.Controls.Add(this.lbl2);
+            this.pnl2.Location = new System.Drawing.Point(261, 55);
+            this.pnl2.Name = "pnl2";
+            this.pnl2.Size = new System.Drawing.Size(105, 88);
+            this.pnl2.TabIndex = 10;
+            // 
+            // lnlP2
+            // 
+            this.lnlP2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lnlP2.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnlP2.Location = new System.Drawing.Point(0, 62);
+            this.lnlP2.Name = "lnlP2";
+            this.lnlP2.Size = new System.Drawing.Size(103, 24);
+            this.lnlP2.TabIndex = 1;
+            this.lnlP2.Text = "0,00 %";
+            this.lnlP2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl2
+            // 
+            this.lbl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl2.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl2.Location = new System.Drawing.Point(0, 0);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(103, 64);
+            this.lbl2.TabIndex = 0;
+            this.lbl2.Text = "2";
+            this.lbl2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnl3
+            // 
+            this.pnl3.BackColor = System.Drawing.Color.White;
+            this.pnl3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl3.Controls.Add(this.lblP3);
+            this.pnl3.Controls.Add(this.lbl3);
+            this.pnl3.Location = new System.Drawing.Point(371, 55);
+            this.pnl3.Name = "pnl3";
+            this.pnl3.Size = new System.Drawing.Size(105, 88);
+            this.pnl3.TabIndex = 10;
+            // 
+            // lblP3
+            // 
+            this.lblP3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblP3.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP3.Location = new System.Drawing.Point(0, 62);
+            this.lblP3.Name = "lblP3";
+            this.lblP3.Size = new System.Drawing.Size(103, 24);
+            this.lblP3.TabIndex = 1;
+            this.lblP3.Text = "0,00 %";
+            this.lblP3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl3
+            // 
+            this.lbl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl3.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl3.Location = new System.Drawing.Point(0, 0);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(103, 64);
+            this.lbl3.TabIndex = 0;
+            this.lbl3.Text = "3";
+            this.lbl3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnl4
+            // 
+            this.pnl4.BackColor = System.Drawing.Color.White;
+            this.pnl4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl4.Controls.Add(this.lblP4);
+            this.pnl4.Controls.Add(this.lbl4);
+            this.pnl4.Location = new System.Drawing.Point(481, 55);
+            this.pnl4.Name = "pnl4";
+            this.pnl4.Size = new System.Drawing.Size(105, 88);
+            this.pnl4.TabIndex = 10;
+            // 
+            // lblP4
+            // 
+            this.lblP4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblP4.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP4.Location = new System.Drawing.Point(0, 62);
+            this.lblP4.Name = "lblP4";
+            this.lblP4.Size = new System.Drawing.Size(103, 24);
+            this.lblP4.TabIndex = 1;
+            this.lblP4.Text = "0,00 %";
+            this.lblP4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl4
+            // 
+            this.lbl4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl4.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl4.Location = new System.Drawing.Point(0, 0);
+            this.lbl4.Name = "lbl4";
+            this.lbl4.Size = new System.Drawing.Size(103, 64);
+            this.lbl4.TabIndex = 0;
+            this.lbl4.Text = "4";
+            this.lbl4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnl9
+            // 
+            this.pnl9.BackColor = System.Drawing.Color.White;
+            this.pnl9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl9.Controls.Add(this.lblP9);
+            this.pnl9.Controls.Add(this.lbl9);
+            this.pnl9.Location = new System.Drawing.Point(482, 149);
+            this.pnl9.Name = "pnl9";
+            this.pnl9.Size = new System.Drawing.Size(105, 88);
+            this.pnl9.TabIndex = 12;
+            // 
+            // lblP9
+            // 
+            this.lblP9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblP9.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP9.Location = new System.Drawing.Point(0, 62);
+            this.lblP9.Name = "lblP9";
+            this.lblP9.Size = new System.Drawing.Size(103, 24);
+            this.lblP9.TabIndex = 1;
+            this.lblP9.Text = "0,00 %";
+            this.lblP9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl9
+            // 
+            this.lbl9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl9.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl9.Location = new System.Drawing.Point(0, 0);
+            this.lbl9.Name = "lbl9";
+            this.lbl9.Size = new System.Drawing.Size(103, 64);
+            this.lbl9.TabIndex = 0;
+            this.lbl9.Text = "9";
+            this.lbl9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnl8
+            // 
+            this.pnl8.BackColor = System.Drawing.Color.White;
+            this.pnl8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl8.Controls.Add(this.lblP8);
+            this.pnl8.Controls.Add(this.lbl8);
+            this.pnl8.Location = new System.Drawing.Point(371, 149);
+            this.pnl8.Name = "pnl8";
+            this.pnl8.Size = new System.Drawing.Size(105, 88);
+            this.pnl8.TabIndex = 13;
+            // 
+            // lblP8
+            // 
+            this.lblP8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblP8.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP8.Location = new System.Drawing.Point(0, 62);
+            this.lblP8.Name = "lblP8";
+            this.lblP8.Size = new System.Drawing.Size(103, 24);
+            this.lblP8.TabIndex = 1;
+            this.lblP8.Text = "0,00 %";
+            this.lblP8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl8
+            // 
+            this.lbl8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl8.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl8.Location = new System.Drawing.Point(0, 0);
+            this.lbl8.Name = "lbl8";
+            this.lbl8.Size = new System.Drawing.Size(103, 64);
+            this.lbl8.TabIndex = 0;
+            this.lbl8.Text = "8";
+            this.lbl8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnl7
+            // 
+            this.pnl7.BackColor = System.Drawing.Color.White;
+            this.pnl7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl7.Controls.Add(this.lblP7);
+            this.pnl7.Controls.Add(this.lbl7);
+            this.pnl7.Location = new System.Drawing.Point(261, 149);
+            this.pnl7.Name = "pnl7";
+            this.pnl7.Size = new System.Drawing.Size(105, 88);
+            this.pnl7.TabIndex = 14;
+            // 
+            // lblP7
+            // 
+            this.lblP7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblP7.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP7.Location = new System.Drawing.Point(0, 62);
+            this.lblP7.Name = "lblP7";
+            this.lblP7.Size = new System.Drawing.Size(103, 24);
+            this.lblP7.TabIndex = 1;
+            this.lblP7.Text = "0,00 %";
+            this.lblP7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl7
+            // 
+            this.lbl7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl7.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl7.Location = new System.Drawing.Point(0, 0);
+            this.lbl7.Name = "lbl7";
+            this.lbl7.Size = new System.Drawing.Size(103, 64);
+            this.lbl7.TabIndex = 0;
+            this.lbl7.Text = "7";
+            this.lbl7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnl6
+            // 
+            this.pnl6.BackColor = System.Drawing.Color.White;
+            this.pnl6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl6.Controls.Add(this.lblP6);
+            this.pnl6.Controls.Add(this.lbl6);
+            this.pnl6.Location = new System.Drawing.Point(151, 149);
+            this.pnl6.Name = "pnl6";
+            this.pnl6.Size = new System.Drawing.Size(105, 88);
+            this.pnl6.TabIndex = 15;
+            // 
+            // lblP6
+            // 
+            this.lblP6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblP6.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP6.Location = new System.Drawing.Point(0, 62);
+            this.lblP6.Name = "lblP6";
+            this.lblP6.Size = new System.Drawing.Size(103, 24);
+            this.lblP6.TabIndex = 1;
+            this.lblP6.Text = "0,00 %";
+            this.lblP6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl6
+            // 
+            this.lbl6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl6.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl6.Location = new System.Drawing.Point(0, 0);
+            this.lbl6.Name = "lbl6";
+            this.lbl6.Size = new System.Drawing.Size(103, 64);
+            this.lbl6.TabIndex = 0;
+            this.lbl6.Text = "6";
+            this.lbl6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnl5
+            // 
+            this.pnl5.BackColor = System.Drawing.Color.White;
+            this.pnl5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl5.Controls.Add(this.lblP5);
+            this.pnl5.Controls.Add(this.lbl5);
+            this.pnl5.Location = new System.Drawing.Point(40, 149);
+            this.pnl5.Name = "pnl5";
+            this.pnl5.Size = new System.Drawing.Size(105, 88);
+            this.pnl5.TabIndex = 11;
+            // 
+            // lblP5
+            // 
+            this.lblP5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblP5.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP5.Location = new System.Drawing.Point(0, 62);
+            this.lblP5.Name = "lblP5";
+            this.lblP5.Size = new System.Drawing.Size(103, 24);
+            this.lblP5.TabIndex = 1;
+            this.lblP5.Text = "0,00 %";
+            this.lblP5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl5
+            // 
+            this.lbl5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl5.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl5.Location = new System.Drawing.Point(0, 0);
+            this.lbl5.Name = "lbl5";
+            this.lbl5.Size = new System.Drawing.Size(103, 64);
+            this.lbl5.TabIndex = 0;
+            this.lbl5.Text = "5";
+            this.lbl5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmMain
             // 
@@ -513,9 +1026,23 @@
             this.pnlImgHeader.ResumeLayout(false);
             this.pnlImgHeader.PerformLayout();
             this.pnlNNStatistic.ResumeLayout(false);
+            this.pnlNNStatisticHeader.ResumeLayout(false);
+            this.pnlNNStatisticHeader.PerformLayout();
+            this.pnlSpeed.ResumeLayout(false);
+            this.pnlSpeed.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).EndInit();
+            this.pnl0.ResumeLayout(false);
+            this.pnl1.ResumeLayout(false);
+            this.pnl2.ResumeLayout(false);
+            this.pnl3.ResumeLayout(false);
+            this.pnl4.ResumeLayout(false);
+            this.pnl9.ResumeLayout(false);
+            this.pnl8.ResumeLayout(false);
+            this.pnl7.ResumeLayout(false);
+            this.pnl6.ResumeLayout(false);
+            this.pnl5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -556,6 +1083,44 @@
         private System.Windows.Forms.Label lblImage;
         private System.Windows.Forms.Panel pnlNNStatistic;
         private System.Windows.Forms.PictureBox picBoxIcon;
+        private System.Windows.Forms.Label lblRecognizedNumBig;
+        private System.Windows.Forms.RadioButton rbManuell;
+        private System.Windows.Forms.RadioButton rbAutomatic;
+        private System.Windows.Forms.Panel pnlNNStatisticHeader;
+        private System.Windows.Forms.Panel pnlSpeed;
+        private System.Windows.Forms.RadioButton rbSlow;
+        private System.Windows.Forms.RadioButton rbFast;
+        private System.Windows.Forms.Button btnImgDelete;
+        private System.Windows.Forms.Panel pnl4;
+        private System.Windows.Forms.Label lblP4;
+        private System.Windows.Forms.Label lbl4;
+        private System.Windows.Forms.Panel pnl3;
+        private System.Windows.Forms.Label lblP3;
+        private System.Windows.Forms.Label lbl3;
+        private System.Windows.Forms.Panel pnl2;
+        private System.Windows.Forms.Label lnlP2;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Panel pnl1;
+        private System.Windows.Forms.Label lblP1;
+        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Panel pnl0;
+        private System.Windows.Forms.Label lblP0;
+        private System.Windows.Forms.Label lbl0;
+        private System.Windows.Forms.Panel pnl9;
+        private System.Windows.Forms.Label lblP9;
+        private System.Windows.Forms.Label lbl9;
+        private System.Windows.Forms.Panel pnl8;
+        private System.Windows.Forms.Label lblP8;
+        private System.Windows.Forms.Label lbl8;
+        private System.Windows.Forms.Panel pnl7;
+        private System.Windows.Forms.Label lblP7;
+        private System.Windows.Forms.Label lbl7;
+        private System.Windows.Forms.Panel pnl6;
+        private System.Windows.Forms.Label lblP6;
+        private System.Windows.Forms.Label lbl6;
+        private System.Windows.Forms.Panel pnl5;
+        private System.Windows.Forms.Label lblP5;
+        private System.Windows.Forms.Label lbl5;
     }
 }
 

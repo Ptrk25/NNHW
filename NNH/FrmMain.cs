@@ -25,7 +25,6 @@ namespace NNH
         private HashSet<Control> controlsToMove = new HashSet<Control>();
 
 
-
         public FrmMain()
         {
             InitializeComponent();
@@ -48,24 +47,19 @@ namespace NNH
             return false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void FrmMain_Load(object sender, EventArgs e)
         {
-            Application.Exit();
+
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
-
+            Application.Exit();
         }
     }
 }
