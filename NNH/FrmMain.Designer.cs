@@ -30,7 +30,7 @@
         {
             this.pnlTitlebar = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlOptions = new System.Windows.Forms.Panel();
             this.pnlMNIST = new System.Windows.Forms.Panel();
             this.lblEntriesCount = new System.Windows.Forms.Label();
             this.lblSizeCount = new System.Windows.Forms.Label();
@@ -59,11 +59,11 @@
             this.btnMNISTOpen = new System.Windows.Forms.Button();
             this.btnNNSave = new System.Windows.Forms.Button();
             this.btnNNOpen = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pnlTitlebar.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlOptions.SuspendLayout();
             this.pnlMNIST.SuspendLayout();
             this.pnlMNISTHeader.SuspendLayout();
             this.pnlNN.SuspendLayout();
@@ -76,13 +76,13 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTitlebar
             // 
             this.pnlTitlebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pnlTitlebar.Controls.Add(this.pictureBox1);
+            this.pnlTitlebar.Controls.Add(this.picBoxIcon);
             this.pnlTitlebar.Controls.Add(this.lblTitle);
             this.pnlTitlebar.Controls.Add(this.btnMinimize);
             this.pnlTitlebar.Controls.Add(this.btnClose);
@@ -104,18 +104,18 @@
             this.lblTitle.Text = "Handschrifterkennung";
             this.lblTitle.Click += new System.EventHandler(this.label1_Click);
             // 
-            // panel2
+            // pnlOptions
             // 
-            this.panel2.BackColor = System.Drawing.Color.DimGray;
-            this.panel2.Controls.Add(this.pnlMNIST);
-            this.panel2.Controls.Add(this.pnlMNISTHeader);
-            this.panel2.Controls.Add(this.pnlNN);
-            this.panel2.Controls.Add(this.pnlNNHeader);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 47);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 530);
-            this.panel2.TabIndex = 2;
+            this.pnlOptions.BackColor = System.Drawing.Color.DimGray;
+            this.pnlOptions.Controls.Add(this.pnlMNIST);
+            this.pnlOptions.Controls.Add(this.pnlMNISTHeader);
+            this.pnlOptions.Controls.Add(this.pnlNN);
+            this.pnlOptions.Controls.Add(this.pnlNNHeader);
+            this.pnlOptions.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlOptions.Location = new System.Drawing.Point(0, 47);
+            this.pnlOptions.Name = "pnlOptions";
+            this.pnlOptions.Size = new System.Drawing.Size(200, 530);
+            this.pnlOptions.TabIndex = 2;
             // 
             // pnlMNIST
             // 
@@ -438,16 +438,16 @@
             this.btnNNOpen.Text = "          Öffnen";
             this.btnNNOpen.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // picBoxIcon
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::NNH.Properties.Resources.icons8_Hand_With_Pen_32;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 47);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.picBoxIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.picBoxIcon.Image = global::NNH.Properties.Resources.icons8_Hand_With_Pen_32;
+            this.picBoxIcon.Location = new System.Drawing.Point(0, 0);
+            this.picBoxIcon.Name = "picBoxIcon";
+            this.picBoxIcon.Size = new System.Drawing.Size(48, 47);
+            this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picBoxIcon.TabIndex = 3;
+            this.picBoxIcon.TabStop = false;
             // 
             // btnMinimize
             // 
@@ -488,15 +488,15 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(850, 577);
             this.Controls.Add(this.pnlMain);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlOptions);
             this.Controls.Add(this.pnlTitlebar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainWindow";
+            this.Text = "Handschrifterkennung";
             this.pnlTitlebar.ResumeLayout(false);
             this.pnlTitlebar.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.pnlOptions.ResumeLayout(false);
             this.pnlMNIST.ResumeLayout(false);
             this.pnlMNIST.PerformLayout();
             this.pnlMNISTHeader.ResumeLayout(false);
@@ -515,7 +515,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -526,7 +526,7 @@
         private System.Windows.Forms.Panel pnlTitlebar;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlOptions;
         private System.Windows.Forms.Panel pnlMNIST;
         private System.Windows.Forms.Panel pnlMNISTHeader;
         private System.Windows.Forms.Label lblMNIST;
@@ -555,7 +555,7 @@
         private System.Windows.Forms.Panel pnlImgHeader;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picBoxIcon;
     }
 }
 
