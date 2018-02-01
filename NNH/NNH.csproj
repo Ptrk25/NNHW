@@ -69,6 +69,8 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="MNISTImage.cs" />
+    <Compile Include="MNISTParser.cs" />
     <Compile Include="NeuralNetwork.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -23,7 +23,7 @@ namespace NNH
 
         public void setPixel(int intensity, int x, int y)
         {
-            pixels[x, y] = intensity;
+            pixels[x, y] = 255 - intensity;
         }
     
         public int getPixel(int x, int y)
@@ -34,13 +34,12 @@ namespace NNH
         public Bitmap getImageAsBitmap()
         {
             Bitmap image = new Bitmap(width, height);
-
-            for(int x = 0; x < width; x++)
+            for(int y = 0; y < width; y++)
             {
-                for(int y = 0; y < height; y++)
+                for(int x = 0; x < height; x++)
                 {
                     int intensity = pixels[x, y];
-                    image.SetPixel(x, y, Color.FromArgb(0, intensity, intensity, intensity));
+                    image.SetPixel(x, y, Color.FromArgb(255, intensity, intensity, intensity));
                 }
             }
 

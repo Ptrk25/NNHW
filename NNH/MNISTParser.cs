@@ -8,8 +8,8 @@ namespace NNH
 {
     class MNISTParser
     {
-        private readonly int LABEL_MAGIC = 2049;
-        private readonly int IMAGES_MAGIC = 2051;
+        private readonly int LABEL_MAGIC = 17301504;
+        private readonly int IMAGES_MAGIC = 50855936;
 
         private string imagesPath, labelsPath;
         private byte[] fileImages, fileLabels;
@@ -19,6 +19,7 @@ namespace NNH
         {
             this.imagesPath = imagesPath;
             this.labelsPath = labelsPath;
+            mnistImages = new List<MNISTImage>();
         }
 
         public bool parseMNIST()
@@ -39,16 +40,11 @@ namespace NNH
             if (BitConverter.ToInt32(fileLabels, 0) != LABEL_MAGIC)
                 return false;
 
-            int entries = BitConverter.ToInt32(fileLabels, 4);
-
             for (int i = 8; i < fileLabels.Length; i++)
             {
                 MNISTImage num_image = new MNISTImage(28, 28, fileLabels[i]);
                 mnistImages.Add(num_image);
             }
-
-            if (entries != mnistImages.Count)
-                return false;
 
             return true;
         }
@@ -59,18 +55,22 @@ namespace NNH
             if (BitConverter.ToInt32(fileImages, 0) != IMAGES_MAGIC)
                 return false;
 
-            int entries = BitConverter.ToInt32(fileImages, 4);
-            int x, y, image;
-
-            if (entries != mnistImages.Count)
-                return false;
+            int x = 0, y = 0, image = 0;
 
             for (int i = 16; i < fileImages.Length; i++)
             {
-                MNISTImage
+                MNISTImage current_image = mnistImages[image];
+                current_image.setPixel(fileImages[i], x, y % 28);
+                mnistImages[image] = current_image;
 
-                x = i % 16;
+                x = (i + 13) % 28;
 
+                if (y % 28 == 0 && x == 0 && y != 0)
+                    image++;
+
+                if (x == 0)
+                    y++;
+                
             }
 
             return true;

@@ -24,6 +24,8 @@ namespace NNH
 
         private HashSet<Control> controlsToMove = new HashSet<Control>();
 
+        private MNISTParser mnist_parser;
+
 
         public FrmMain()
         {
@@ -60,6 +62,20 @@ namespace NNH
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void oFDMNIST_FileOk(object sender, CancelEventArgs e)
+        {
+            //mnist_parser = new MNISTParser(oFDMNIST.FileName);
+        }
+
+        private void btnMNISTOpen_Click(object sender, EventArgs e)
+        {
+            /*
+            oFDMNIST.ShowDialog();
+            mnist_parser = new MNISTParser("C:/Users/Patrick/Downloads/train-images.idx3-ubyte", "C:/Users/Patrick/Downloads/train-labels.idx1-ubyte");
+            mnist_parser.parseMNIST();
+            */
         }
     }
 }
