@@ -13,13 +13,16 @@ namespace NNH
 
         private string imagesPath, labelsPath;
         private byte[] fileImages, fileLabels;
-        private List<MNISTImage> mnistImages;
+        private Random rnd;
+        private List<MNISTImage> mnistImages, mnistImage_copy;
 
         public MNISTParser(string imagesPath, string labelsPath)
         {
             this.imagesPath = imagesPath;
             this.labelsPath = labelsPath;
             mnistImages = new List<MNISTImage>();
+            mnistImage_copy = new List<MNISTImage>();
+            rnd = new Random();
         }
 
         public bool parseMNIST()
@@ -74,6 +77,24 @@ namespace NNH
             }
 
             return true;
+        }
+
+        public List<MNISTImage> get100RndImages()
+        {
+            List<MNISTImage> rndImages = new List<MNISTImage>();
+
+            if (mnistImages.Count == 0)
+                mnistImages = mnistImage_copy;
+
+            for (int i = 0; i < 100; i++)
+            {
+                int number = rnd.Next(0, mnistImages.Count-1);
+                rndImages.Add(mnistImages[number]);
+                mnistImage_copy.Add(mnistImages[number]);
+                mnistImages.RemoveAt(number);
+            }
+
+            return rndImages;
         }
 
 
