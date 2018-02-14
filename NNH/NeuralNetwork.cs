@@ -11,13 +11,66 @@ namespace NNH
         public Matrix<float> _output;
     }
 
+    struct GradientDescent
+    {
+        public List<Matrix<float>> _gdb, _dgw;
+
+        public static GradientDescent operator +(GradientDescent G1, GradientDescent G2)
+        {
+            GradientDescent result;
+            for(int i = 0; i < G1._dgw.Count; i++)
+            {
+                result._dgw.Add(G1._dgw[i].Add(G2._dgw[i]));
+                result._dgb.Add(G1._dgb[i].Add(G2._dgb[i]));
+            }
+        }
+
+        public void AvgDescend(int samplesize, float rate)
+        {
+            double sum = 0;
+            foreach(Matrix<float> m in _gdb)
+            {
+                foreach(float f in m)
+                {
+                    sum += f*f;
+                }
+            }
+            foreach(Matrix<float> m in _gdw)
+            {
+                foreach(float f in m)
+                {
+                    sum += f*f;
+                }
+            }
+
+            double len = Math.Sqrt(sum);
+
+            foreach(Matrix<float> m in _gdb)
+            {
+                foreach(float f in m)
+                {
+                    f = - rate * f / sum;
+                }
+            }
+            foreach(Matrix<float> m in _gdw)
+            {
+                foreach(float f in m)
+                {
+                    f = - rate * f / sum;
+                }
+            }
+
+
+        }
+
+    }
+
 
     class NeuralNetwork
     {
-        private List<Matrix<float>> _weights;
-        private List<Matrix<float>> _biases;
+        private List<Matrix<float>> _weights, _biases;
 
-        public void Init(List<int> layers, int output_size)
+        public void Init(List<int> layers)
         {
             int prev_layer = layers[0];
             for(int i = 1; i < layers.Count; i++)
@@ -27,9 +80,6 @@ namespace NNH
 
                 prev_layer = layers[i];
             }   
-            
-            _weights.Add(CreateMatrix.Random<float>(prev_layer, output_size));
-            _biases.Add(CreateVector.Random<float>(output_size));
         }
 
         public Matrix<float> FeedForward(Matrix<float> input)
@@ -47,10 +97,25 @@ namespace NNH
 
         public void TrainingEpoch(List<TrainingData> data)
         {
-            
+            GradientDescent g = Backpropagation(data[0]);
+            for(int i = 1; i < data.Count; i++)
+            {
+                g = g + Backpropagation(data[0]);
+            }
+            g.AvgDescend(data.Count, 0.2);
+               
+            for(int i = 0; i < _weights.Count; i++)
+            {
+                _weights[i].Add(g._dgw[i]);
+            }
+
+            for(int i = 0; i < _weights.Count; i++)
+            {
+                _biases[i].Add(g._dgb[i]);
+            }
         }
 
-        private void Backpropagation(TrainingData data)
+        private GradientDescent Backpropagation(TrainingData data)
         {
             //feedforward
 
@@ -95,7 +160,10 @@ namespace NNH
                 ldw.Insert(0, dw);
                 ldb.Insert(0, db);
             }
-            
+            GradientDescent result;
+            result._dgw = dw;
+            result._gdb = db;
+            return result;
         }
 
         public void Save()
