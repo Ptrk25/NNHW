@@ -142,6 +142,7 @@
             this.pnlTitlebar.Name = "pnlTitlebar";
             this.pnlTitlebar.Size = new System.Drawing.Size(850, 47);
             this.pnlTitlebar.TabIndex = 1;
+            this.pnlTitlebar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTitlebar_Paint);
             // 
             // picBoxIcon
             // 

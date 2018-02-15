@@ -10,7 +10,7 @@ namespace NNH
     {
 
         private int width, height;
-        private int[,] pixels;
+        public int[,] pixels;
         public int label;
 
         public MNISTImage(int width, int height, int label)

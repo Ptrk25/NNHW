@@ -116,5 +116,9 @@ namespace NNH
 
         }
 
+        private void pnlTitlebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
