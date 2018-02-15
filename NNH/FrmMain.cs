@@ -8,6 +8,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
+using MathNet.Numerics.LinearAlgebra;
+
 namespace NNH
 {
     public partial class FrmMain : Form, IMessageFilter
@@ -26,6 +28,7 @@ namespace NNH
 
         private MNISTParser mnist_parser;
 
+        private NeuralNetwork nn;
 
         public FrmMain()
         {
@@ -51,12 +54,26 @@ namespace NNH
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            //this.WindowState = FormWindowState.Minimized;
+            nn = new NeuralNetwork();
+            List<int> layers = new List<int> { 3, 2 };
+            nn.Init(layers);
+
+            float[] vals = new[] { 3.0f, 2.0f, 1.0f };
+            Matrix<float> input = CreateMatrix.Dense<float>(3, 1, vals);
+
+            float[] dout = new[] { 1.0f, 0.0f };
+            Matrix<float> doutput = CreateMatrix.Dense<float>(2, 1, dout);
+
+            Matrix<float> result = nn.FeedForward(input);
+            lblP0.Text = result[0, 0].ToString();
+            lblP1.Text = result[1, 0].ToString();
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -71,11 +88,33 @@ namespace NNH
 
         private void btnMNISTOpen_Click(object sender, EventArgs e)
         {
+
+            float[] vals = new[] { 3.0f, 2.0f, 1.0f };
+            Matrix<float> input = CreateMatrix.Dense<float>(3, 1, vals);
+
+            float[] dout = new[] { 1.0f, 0.0f };
+            Matrix<float> doutput = CreateMatrix.Dense<float>(2, 1, dout);
+
+            List<TrainingData> data = new List<TrainingData>();
+            data.Add(new TrainingData(input, doutput));
+
+            nn.TrainingEpoch(data, 0.1f);
+
+            Matrix<float> result = nn.FeedForward(input);
+            lblP0.Text = result[0, 0].ToString();
+            lblP1.Text = result[1, 0].ToString();
+
             /*
             oFDMNIST.ShowDialog();
             mnist_parser = new MNISTParser("C:/Users/Patrick/Downloads/train-images.idx3-ubyte", "C:/Users/Patrick/Downloads/train-labels.idx1-ubyte");
             mnist_parser.parseMNIST();
             */
         }
+
+        private void btnImgDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

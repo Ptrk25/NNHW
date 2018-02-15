@@ -157,11 +157,11 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(54, 11);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(204, 25);
+            this.lblTitle.Size = new System.Drawing.Size(216, 24);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Handschrifterkennung";
             // 
@@ -227,7 +227,7 @@
             // lblEntriesCount
             // 
             this.lblEntriesCount.AutoSize = true;
-            this.lblEntriesCount.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntriesCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEntriesCount.Location = new System.Drawing.Point(14, 91);
             this.lblEntriesCount.Name = "lblEntriesCount";
             this.lblEntriesCount.Size = new System.Drawing.Size(18, 20);
@@ -237,7 +237,7 @@
             // lblSizeCount
             // 
             this.lblSizeCount.AutoSize = true;
-            this.lblSizeCount.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSizeCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSizeCount.Location = new System.Drawing.Point(14, 40);
             this.lblSizeCount.Name = "lblSizeCount";
             this.lblSizeCount.Size = new System.Drawing.Size(46, 20);
@@ -247,22 +247,22 @@
             // lblEntries
             // 
             this.lblEntries.AutoSize = true;
-            this.lblEntries.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntries.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEntries.ForeColor = System.Drawing.Color.Black;
             this.lblEntries.Location = new System.Drawing.Point(8, 71);
             this.lblEntries.Name = "lblEntries";
-            this.lblEntries.Size = new System.Drawing.Size(69, 20);
+            this.lblEntries.Size = new System.Drawing.Size(77, 20);
             this.lblEntries.TabIndex = 9;
             this.lblEntries.Text = "Einträge";
             // 
             // lblSize
             // 
             this.lblSize.AutoSize = true;
-            this.lblSize.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSize.ForeColor = System.Drawing.Color.Black;
             this.lblSize.Location = new System.Drawing.Point(8, 20);
             this.lblSize.Name = "lblSize";
-            this.lblSize.Size = new System.Drawing.Size(57, 20);
+            this.lblSize.Size = new System.Drawing.Size(60, 20);
             this.lblSize.TabIndex = 8;
             this.lblSize.Text = "Größe";
             // 
@@ -273,7 +273,7 @@
             this.btnMNISTOpen.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnMNISTOpen.FlatAppearance.BorderSize = 0;
             this.btnMNISTOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMNISTOpen.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMNISTOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMNISTOpen.ForeColor = System.Drawing.Color.White;
             this.btnMNISTOpen.Image = global::NNH.Properties.Resources.icons8_Open_32;
             this.btnMNISTOpen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -298,11 +298,11 @@
             // lblMNIST
             // 
             this.lblMNIST.AutoSize = true;
-            this.lblMNIST.Font = new System.Drawing.Font("Lato", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMNIST.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMNIST.ForeColor = System.Drawing.Color.Black;
             this.lblMNIST.Location = new System.Drawing.Point(24, 15);
             this.lblMNIST.Name = "lblMNIST";
-            this.lblMNIST.Size = new System.Drawing.Size(152, 21);
+            this.lblMNIST.Size = new System.Drawing.Size(160, 20);
             this.lblMNIST.TabIndex = 1;
             this.lblMNIST.Text = "MNIST Datenbank";
             // 
@@ -324,17 +324,17 @@
             // lblErrorCount
             // 
             this.lblErrorCount.AutoSize = true;
-            this.lblErrorCount.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorCount.Location = new System.Drawing.Point(14, 88);
             this.lblErrorCount.Name = "lblErrorCount";
-            this.lblErrorCount.Size = new System.Drawing.Size(34, 20);
+            this.lblErrorCount.Size = new System.Drawing.Size(36, 20);
             this.lblErrorCount.TabIndex = 6;
             this.lblErrorCount.Text = "0 %";
             // 
             // lblGenCount
             // 
             this.lblGenCount.AutoSize = true;
-            this.lblGenCount.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenCount.Location = new System.Drawing.Point(14, 35);
             this.lblGenCount.Name = "lblGenCount";
             this.lblGenCount.Size = new System.Drawing.Size(18, 20);
@@ -347,7 +347,7 @@
             this.btnNNSave.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnNNSave.FlatAppearance.BorderSize = 0;
             this.btnNNSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNNSave.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNNSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNNSave.ForeColor = System.Drawing.Color.White;
             this.btnNNSave.Image = global::NNH.Properties.Resources.icons8_Save_32;
             this.btnNNSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -365,7 +365,7 @@
             this.btnNNOpen.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnNNOpen.FlatAppearance.BorderSize = 0;
             this.btnNNOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNNOpen.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNNOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNNOpen.ForeColor = System.Drawing.Color.White;
             this.btnNNOpen.Image = global::NNH.Properties.Resources.icons8_Open_32;
             this.btnNNOpen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -379,22 +379,22 @@
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Black;
             this.lblError.Location = new System.Drawing.Point(8, 68);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(98, 20);
+            this.lblError.Size = new System.Drawing.Size(106, 20);
             this.lblError.TabIndex = 1;
             this.lblError.Text = "Fehlerquote";
             // 
             // lblGen
             // 
             this.lblGen.AutoSize = true;
-            this.lblGen.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGen.ForeColor = System.Drawing.Color.Black;
             this.lblGen.Location = new System.Drawing.Point(8, 15);
             this.lblGen.Name = "lblGen";
-            this.lblGen.Size = new System.Drawing.Size(91, 20);
+            this.lblGen.Size = new System.Drawing.Size(99, 20);
             this.lblGen.TabIndex = 0;
             this.lblGen.Text = "Generation";
             // 
@@ -411,11 +411,11 @@
             // lblNN
             // 
             this.lblNN.AutoSize = true;
-            this.lblNN.Font = new System.Drawing.Font("Lato", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNN.ForeColor = System.Drawing.Color.Black;
             this.lblNN.Location = new System.Drawing.Point(11, 13);
             this.lblNN.Name = "lblNN";
-            this.lblNN.Size = new System.Drawing.Size(177, 21);
+            this.lblNN.Size = new System.Drawing.Size(188, 20);
             this.lblNN.TabIndex = 0;
             this.lblNN.Text = "Neuronales Netzwerk";
             // 
@@ -425,7 +425,7 @@
             this.btnNNLearn.Enabled = false;
             this.btnNNLearn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnNNLearn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNNLearn.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNNLearn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNNLearn.ForeColor = System.Drawing.Color.Black;
             this.btnNNLearn.Location = new System.Drawing.Point(482, 8);
             this.btnNNLearn.Name = "btnNNLearn";
@@ -471,7 +471,7 @@
             // 
             this.lblRecognizedNumBig.BackColor = System.Drawing.Color.Transparent;
             this.lblRecognizedNumBig.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblRecognizedNumBig.Font = new System.Drawing.Font("Lato", 71.99999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecognizedNumBig.Font = new System.Drawing.Font("Microsoft Sans Serif", 71.99999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRecognizedNumBig.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblRecognizedNumBig.Location = new System.Drawing.Point(0, 49);
             this.lblRecognizedNumBig.Name = "lblRecognizedNumBig";
@@ -493,11 +493,11 @@
             // lblRecognizedNum
             // 
             this.lblRecognizedNum.AutoSize = true;
-            this.lblRecognizedNum.Font = new System.Drawing.Font("Lato", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecognizedNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRecognizedNum.ForeColor = System.Drawing.Color.Black;
             this.lblRecognizedNum.Location = new System.Drawing.Point(53, 15);
             this.lblRecognizedNum.Name = "lblRecognizedNum";
-            this.lblRecognizedNum.Size = new System.Drawing.Size(118, 21);
+            this.lblRecognizedNum.Size = new System.Drawing.Size(124, 20);
             this.lblRecognizedNum.TabIndex = 2;
             this.lblRecognizedNum.Text = "Erkannte Zahl";
             // 
@@ -543,15 +543,16 @@
             this.btnImgDelete.Size = new System.Drawing.Size(49, 49);
             this.btnImgDelete.TabIndex = 3;
             this.btnImgDelete.UseVisualStyleBackColor = true;
+            this.btnImgDelete.Click += new System.EventHandler(this.btnImgDelete_Click);
             // 
             // lblImage
             // 
             this.lblImage.AutoSize = true;
-            this.lblImage.Font = new System.Drawing.Font("Lato", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblImage.ForeColor = System.Drawing.Color.Black;
             this.lblImage.Location = new System.Drawing.Point(85, 14);
             this.lblImage.Name = "lblImage";
-            this.lblImage.Size = new System.Drawing.Size(40, 21);
+            this.lblImage.Size = new System.Drawing.Size(42, 20);
             this.lblImage.TabIndex = 2;
             this.lblImage.Text = "Bild";
             // 
@@ -589,7 +590,7 @@
             // lblP9
             // 
             this.lblP9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblP9.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblP9.Location = new System.Drawing.Point(0, 62);
             this.lblP9.Name = "lblP9";
             this.lblP9.Size = new System.Drawing.Size(103, 24);
@@ -600,7 +601,7 @@
             // lbl9
             // 
             this.lbl9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl9.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl9.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl9.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl9.Location = new System.Drawing.Point(0, 0);
             this.lbl9.Name = "lbl9";
@@ -623,7 +624,7 @@
             // lblP4
             // 
             this.lblP4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblP4.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblP4.Location = new System.Drawing.Point(0, 62);
             this.lblP4.Name = "lblP4";
             this.lblP4.Size = new System.Drawing.Size(103, 24);
@@ -634,7 +635,7 @@
             // lbl4
             // 
             this.lbl4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl4.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl4.Location = new System.Drawing.Point(0, 0);
             this.lbl4.Name = "lbl4";
@@ -657,7 +658,7 @@
             // lblP8
             // 
             this.lblP8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblP8.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblP8.Location = new System.Drawing.Point(0, 62);
             this.lblP8.Name = "lblP8";
             this.lblP8.Size = new System.Drawing.Size(103, 24);
@@ -668,7 +669,7 @@
             // lbl8
             // 
             this.lbl8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl8.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl8.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl8.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl8.Location = new System.Drawing.Point(0, 0);
             this.lbl8.Name = "lbl8";
@@ -691,7 +692,7 @@
             // lblP3
             // 
             this.lblP3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblP3.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblP3.Location = new System.Drawing.Point(0, 62);
             this.lblP3.Name = "lblP3";
             this.lblP3.Size = new System.Drawing.Size(103, 24);
@@ -702,7 +703,7 @@
             // lbl3
             // 
             this.lbl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl3.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl3.Location = new System.Drawing.Point(0, 0);
             this.lbl3.Name = "lbl3";
@@ -725,7 +726,7 @@
             // lblP7
             // 
             this.lblP7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblP7.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblP7.Location = new System.Drawing.Point(0, 62);
             this.lblP7.Name = "lblP7";
             this.lblP7.Size = new System.Drawing.Size(103, 24);
@@ -736,7 +737,7 @@
             // lbl7
             // 
             this.lbl7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl7.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl7.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl7.Location = new System.Drawing.Point(0, 0);
             this.lbl7.Name = "lbl7";
@@ -759,7 +760,7 @@
             // lnlP2
             // 
             this.lnlP2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lnlP2.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnlP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnlP2.Location = new System.Drawing.Point(0, 62);
             this.lnlP2.Name = "lnlP2";
             this.lnlP2.Size = new System.Drawing.Size(103, 24);
@@ -770,7 +771,7 @@
             // lbl2
             // 
             this.lbl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl2.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl2.Location = new System.Drawing.Point(0, 0);
             this.lbl2.Name = "lbl2";
@@ -793,7 +794,7 @@
             // lblP6
             // 
             this.lblP6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblP6.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblP6.Location = new System.Drawing.Point(0, 62);
             this.lblP6.Name = "lblP6";
             this.lblP6.Size = new System.Drawing.Size(103, 24);
@@ -804,7 +805,7 @@
             // lbl6
             // 
             this.lbl6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl6.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl6.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl6.Location = new System.Drawing.Point(0, 0);
             this.lbl6.Name = "lbl6";
@@ -827,7 +828,7 @@
             // lblP1
             // 
             this.lblP1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblP1.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblP1.Location = new System.Drawing.Point(0, 62);
             this.lblP1.Name = "lblP1";
             this.lblP1.Size = new System.Drawing.Size(103, 24);
@@ -838,7 +839,7 @@
             // lbl1
             // 
             this.lbl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl1.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl1.Location = new System.Drawing.Point(0, 0);
             this.lbl1.Name = "lbl1";
@@ -861,7 +862,7 @@
             // lblP5
             // 
             this.lblP5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblP5.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblP5.Location = new System.Drawing.Point(0, 62);
             this.lblP5.Name = "lblP5";
             this.lblP5.Size = new System.Drawing.Size(103, 24);
@@ -872,7 +873,7 @@
             // lbl5
             // 
             this.lbl5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl5.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl5.Location = new System.Drawing.Point(0, 0);
             this.lbl5.Name = "lbl5";
@@ -895,7 +896,7 @@
             // lblP0
             // 
             this.lblP0.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblP0.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP0.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblP0.Location = new System.Drawing.Point(0, 62);
             this.lblP0.Name = "lblP0";
             this.lblP0.Size = new System.Drawing.Size(103, 24);
@@ -906,7 +907,7 @@
             // lbl0
             // 
             this.lbl0.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl0.Font = new System.Drawing.Font("Lato", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl0.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl0.Location = new System.Drawing.Point(0, 0);
             this.lbl0.Name = "lbl0";
@@ -942,11 +943,11 @@
             this.rbSlow.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbSlow.AutoSize = true;
             this.rbSlow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbSlow.Font = new System.Drawing.Font("Lato", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbSlow.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbSlow.ForeColor = System.Drawing.Color.Black;
             this.rbSlow.Location = new System.Drawing.Point(123, 9);
             this.rbSlow.Name = "rbSlow";
-            this.rbSlow.Size = new System.Drawing.Size(80, 31);
+            this.rbSlow.Size = new System.Drawing.Size(81, 30);
             this.rbSlow.TabIndex = 8;
             this.rbSlow.Text = "Langsam";
             this.rbSlow.UseVisualStyleBackColor = true;
@@ -957,11 +958,11 @@
             this.rbFast.AutoSize = true;
             this.rbFast.Checked = true;
             this.rbFast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbFast.Font = new System.Drawing.Font("Lato", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFast.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFast.ForeColor = System.Drawing.Color.Black;
             this.rbFast.Location = new System.Drawing.Point(49, 9);
             this.rbFast.Name = "rbFast";
-            this.rbFast.Size = new System.Drawing.Size(68, 31);
+            this.rbFast.Size = new System.Drawing.Size(68, 30);
             this.rbFast.TabIndex = 7;
             this.rbFast.TabStop = true;
             this.rbFast.Text = "Schnell";
@@ -973,11 +974,11 @@
             this.rbAutomatic.AutoSize = true;
             this.rbAutomatic.Checked = true;
             this.rbAutomatic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbAutomatic.Font = new System.Drawing.Font("Lato", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbAutomatic.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbAutomatic.ForeColor = System.Drawing.Color.Black;
             this.rbAutomatic.Location = new System.Drawing.Point(12, 9);
             this.rbAutomatic.Name = "rbAutomatic";
-            this.rbAutomatic.Size = new System.Drawing.Size(105, 31);
+            this.rbAutomatic.Size = new System.Drawing.Size(102, 30);
             this.rbAutomatic.TabIndex = 6;
             this.rbAutomatic.TabStop = true;
             this.rbAutomatic.Text = "Automatisch";
@@ -988,11 +989,11 @@
             this.rbManuell.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbManuell.AutoSize = true;
             this.rbManuell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbManuell.Font = new System.Drawing.Font("Lato", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbManuell.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbManuell.ForeColor = System.Drawing.Color.Black;
             this.rbManuell.Location = new System.Drawing.Point(123, 9);
             this.rbManuell.Name = "rbManuell";
-            this.rbManuell.Size = new System.Drawing.Size(75, 31);
+            this.rbManuell.Size = new System.Drawing.Size(71, 30);
             this.rbManuell.TabIndex = 7;
             this.rbManuell.Text = "Manuell";
             this.rbManuell.UseVisualStyleBackColor = true;
