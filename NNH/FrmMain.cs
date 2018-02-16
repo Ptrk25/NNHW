@@ -59,7 +59,20 @@ namespace NNH
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;            
+            //this.WindowState = FormWindowState.Minimized;  
+            Matrix<float> input = CreateMatrix.Dense<float>(2, 1, 1);
+
+            Matrix<float> doutput = CreateMatrix.Dense<float>(2, 1, new float[] { 1, 0 });
+            TrainingData data = new TrainingData();
+            data._input = input;
+            data._output = doutput;
+
+            List<TrainingData> datalist = new List<TrainingData> { data };
+            nn_parser.network.TrainingEpoch(datalist , 0.2f);
+
+            Matrix<float> output = nn_parser.network.FeedForward(input);
+            lblP0.Text = output[0, 0].ToString();
+            lblP1.Text = output[1, 0].ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -79,6 +92,12 @@ namespace NNH
             mnist_parser = new MNISTParser("C:/Users/Patrick/Downloads/train-images.idx3-ubyte", "C:/Users/Patrick/Downloads/train-labels.idx1-ubyte");
             mnist_parser.parseMNIST();
             */
+            nn_parser = new NeuralNetworkParser();
+            nn_parser.Init(2);
+            Matrix<float> input = CreateMatrix.Dense<float>(2, 1, 1);
+            Matrix<float> output = nn_parser.network.FeedForward(input);
+            lblP0.Text = output[0, 0].ToString();
+            lblP1.Text = output[1, 0].ToString();
         }
 
         private void btnImgDelete_Click(object sender, EventArgs e)

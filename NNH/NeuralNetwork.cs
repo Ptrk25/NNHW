@@ -177,14 +177,14 @@ namespace NNH
             gdb.Insert(0, db);
             gdw.Insert(0, dw);
        
-            for(int i = _weights.Count - 2; i > 0; i--)
+            for(int i = _weights.Count - 2; i >= 0; i--)
             {
                 db = _weights[i+1].Transpose().Multiply(db);
                 for(int x = 0; x < db.RowCount; x++)
                 {
                     db[x, 0]= (float)Derivative(lz[i][x, 0]);
                 }
-                dw = db.Multiply(la[la.Count - 2].Transpose());
+                dw = db.Multiply(la[i].Transpose());
 
                 gdw.Insert(0, dw);
                 gdb.Insert(0, db);

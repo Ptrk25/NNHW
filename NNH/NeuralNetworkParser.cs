@@ -13,13 +13,13 @@ namespace NNH
         public NeuralNetwork network;
         private int input_size;
 
-        public void Init()
+        public void Init(int inputSize)
         {
-            input_size = 728;
+            input_size = inputSize;
 
             network = new NeuralNetwork();
 
-            List<int> layers = new List<int> { input_size, 16, 16, 10 };
+            List<int> layers = new List<int> { input_size, 16, 16, 2 };
 
             network.Init(layers);
 
