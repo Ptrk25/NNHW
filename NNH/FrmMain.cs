@@ -101,11 +101,14 @@ namespace NNH
 
             nn_parser = new NeuralNetworkParser();
 
-            for(int i = 0; i < 1000; i++)
-                nn_parser.Train(mnist_parser.Get100RndImages());
+            for(int i = 0; i < 100; i++)
+                nn_parser.Train(mnist_parser.Get1000RndImages());
 
             MNISTImage img = mnist_parser.GetImage(0);
             Matrix<float> result = nn_parser.FeedForward(img);
+
+            img.getImageAsBitmap().Save("test.png");
+
             return;
         }
 

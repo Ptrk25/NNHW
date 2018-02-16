@@ -79,14 +79,14 @@ namespace NNH
             return true;
         }
 
-        public List<MNISTImage> Get100RndImages()
+        public List<MNISTImage> Get1000RndImages()
         {
             List<MNISTImage> rndImages = new List<MNISTImage>();
 
             if (mnistImages.Count == 0)
                 mnistImages = mnistImage_copy;
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 int number = rnd.Next(0, mnistImages.Count-1);
                 rndImages.Add(mnistImages[number]);
@@ -101,6 +101,7 @@ namespace NNH
         {
             return mnistImages[index];
         }
+
 
 
     }
