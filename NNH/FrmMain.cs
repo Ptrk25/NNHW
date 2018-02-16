@@ -28,7 +28,7 @@ namespace NNH
 
         private MNISTParser mnist_parser;
 
-        private NeuralNetwork nn;
+        private NeuralNetworkParser nn_parser;
 
         public FrmMain()
         {
@@ -54,26 +54,25 @@ namespace NNH
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {
-            //this.WindowState = FormWindowState.Minimized;
-            nn = new NeuralNetwork();
-            List<int> layers = new List<int> { 3, 2 };
-            nn.Init(layers);
+            //this.WindowState = FormWindowState.Minimized;  
+            Matrix<float> input = CreateMatrix.Dense<float>(2, 1, 1);
 
-            float[] vals = new[] { 3.0f, 2.0f, 1.0f };
-            Matrix<float> input = CreateMatrix.Dense<float>(3, 1, vals);
+            Matrix<float> doutput = CreateMatrix.Dense<float>(2, 1, new float[] { 1, 0 });
+            TrainingData data = new TrainingData();
+            data._input = input;
+            data._output = doutput;
 
-            float[] dout = new[] { 1.0f, 0.0f };
-            Matrix<float> doutput = CreateMatrix.Dense<float>(2, 1, dout);
+            List<TrainingData> datalist = new List<TrainingData> { data };
+            nn_parser.network.TrainingEpoch(datalist , 0.2f);
 
-            Matrix<float> result = nn.FeedForward(input);
-            lblP0.Text = result[0, 0].ToString();
-            lblP1.Text = result[1, 0].ToString();
-            
+            Matrix<float> output = nn_parser.network.FeedForward(input);
+            lblP0.Text = output[0, 0].ToString();
+            lblP1.Text = output[1, 0].ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -88,30 +87,17 @@ namespace NNH
 
         private void btnMNISTOpen_Click(object sender, EventArgs e)
         {
-
-            /*float[] vals = new[] { 3.0f, 2.0f, 1.0f };
-            Matrix<float> input = CreateMatrix.Dense<float>(3, 1, vals);
-
-            float[] dout = new[] { 1.0f, 0.0f };
-            Matrix<float> doutput = CreateMatrix.Dense<float>(2, 1, dout);
-
-            List<TrainingData> data = new List<TrainingData>();
-            data.Add(new TrainingData(input, doutput));
-
-            nn.TrainingEpoch(data, 0.1f);
-
-            Matrix<float> result = nn.FeedForward(input);
-            lblP0.Text = result[0, 0].ToString();
-            lblP1.Text = result[1, 0].ToString();*/
-
-            
+            /*
             oFDMNIST.ShowDialog();
             mnist_parser = new MNISTParser("C:/Users/Patrick/Downloads/train-images.idx3-ubyte", "C:/Users/Patrick/Downloads/train-labels.idx1-ubyte");
             mnist_parser.parseMNIST();
-
-            NeuralNetworkHandler nnhandler = new NeuralNetworkHandler();
-            nnhandler.Train(mnist_parser.get100RndImages());
-            
+            */
+            nn_parser = new NeuralNetworkParser();
+            nn_parser.Init(2);
+            Matrix<float> input = CreateMatrix.Dense<float>(2, 1, 1);
+            Matrix<float> output = nn_parser.network.FeedForward(input);
+            lblP0.Text = output[0, 0].ToString();
+            lblP1.Text = output[1, 0].ToString();
         }
 
         private void btnImgDelete_Click(object sender, EventArgs e)

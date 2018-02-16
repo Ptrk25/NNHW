@@ -8,20 +8,36 @@ using MathNet.Numerics.LinearAlgebra;
 namespace NNH
 {
 
-    class NeuralNetworkHandler
+    class NeuralNetworkParser
     {
         public NeuralNetwork network;
         private int input_size;
-        private Matrix<float> results;
 
-        public NeuralNetworkHandler()
+        public void Init(int inputSize)
         {
-            input_size = 748;
+            input_size = inputSize;
+
             network = new NeuralNetwork();
-        
-            List<int> layers = new List<int> { input_size, 16, 16, 10 };
+
+            List<int> layers = new List<int> { input_size, 16, 16, 2 };
+
             network.Init(layers);
+
         }
+
+        public Matrix<float> FeedForward(MNISTImage image)
+        {
+            Matrix<float> input = CreateMatrix.Dense<float>(input_size, 1, 0);
+            int x = 0;
+            foreach (int grey in image.pixels)
+            {
+                input[x, 0] = (float)grey / 255;
+                x++;
+            }
+
+            return network.FeedForward(input);
+        }
+
 
         public void Train(List<MNISTImage> images)
         {
@@ -53,12 +69,6 @@ namespace NNH
             }
 
             network.TrainingEpoch(data, 0.2f);
-            //results = network.FeedForward(input);
-        }
-
-        public void getResults()
-        {
-            //Matrix<float> result = network.FeedForward(input);
         }
 
     }
