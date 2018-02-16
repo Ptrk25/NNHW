@@ -72,7 +72,7 @@
     <Compile Include="MNISTImage.cs" />
     <Compile Include="MNISTParser.cs" />
     <Compile Include="NeuralNetwork.cs" />
-    <Compile Include="NeuralNetworkHandler.cs" />
+    <Compile Include="NeuralNetworkParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmMain.resx">

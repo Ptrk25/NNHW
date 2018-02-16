@@ -21,6 +21,16 @@ namespace NNH
             pixels = new int[width, height];
         }
 
+        public void setPixel(int intensity, int x, int y)
+        {
+            pixels[x, y] = intensity;
+        }
+    
+        public int getPixel(int x, int y)
+        {
+            return pixels[x, y];
+        }
+
         public Bitmap getImageAsBitmap()
         {
             Bitmap image = new Bitmap(width, height);

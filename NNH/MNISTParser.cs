@@ -63,7 +63,7 @@ namespace NNH
             for (int i = 16; i < fileImages.Length; i++)
             {
                 MNISTImage current_image = mnistImages[image];
-                current_image.pixels[x, y % 28] = fileImages[i];
+                current_image.setPixel(fileImages[i], x, y % 28);
                 mnistImages[image] = current_image;
 
                 x = (i + 13) % 28;
@@ -79,7 +79,7 @@ namespace NNH
             return true;
         }
 
-        public List<MNISTImage> get100RndImages()
+        public List<MNISTImage> Get100RndImages()
         {
             List<MNISTImage> rndImages = new List<MNISTImage>();
 
@@ -95,6 +95,11 @@ namespace NNH
             }
 
             return rndImages;
+        }
+
+        public MNISTImage GetImage(int index)
+        {
+            return mnistImages[index];
         }
 
 
