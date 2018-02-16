@@ -63,7 +63,7 @@ namespace NNH
             for (int i = 16; i < fileImages.Length; i++)
             {
                 MNISTImage current_image = mnistImages[image];
-                current_image.setPixel(fileImages[i], x, y % 28);
+                current_image.pixels[x, y % 28] = fileImages[i];
                 mnistImages[image] = current_image;
 
                 x = (i + 13) % 28;

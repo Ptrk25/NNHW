@@ -89,7 +89,7 @@ namespace NNH
         private void btnMNISTOpen_Click(object sender, EventArgs e)
         {
 
-            float[] vals = new[] { 3.0f, 2.0f, 1.0f };
+            /*float[] vals = new[] { 3.0f, 2.0f, 1.0f };
             Matrix<float> input = CreateMatrix.Dense<float>(3, 1, vals);
 
             float[] dout = new[] { 1.0f, 0.0f };
@@ -102,13 +102,16 @@ namespace NNH
 
             Matrix<float> result = nn.FeedForward(input);
             lblP0.Text = result[0, 0].ToString();
-            lblP1.Text = result[1, 0].ToString();
+            lblP1.Text = result[1, 0].ToString();*/
 
-            /*
+            
             oFDMNIST.ShowDialog();
             mnist_parser = new MNISTParser("C:/Users/Patrick/Downloads/train-images.idx3-ubyte", "C:/Users/Patrick/Downloads/train-labels.idx1-ubyte");
             mnist_parser.parseMNIST();
-            */
+
+            NeuralNetworkHandler nnhandler = new NeuralNetworkHandler();
+            nnhandler.Train(mnist_parser.get100RndImages());
+            
         }
 
         private void btnImgDelete_Click(object sender, EventArgs e)
