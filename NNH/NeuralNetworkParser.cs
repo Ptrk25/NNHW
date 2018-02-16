@@ -25,6 +25,19 @@ namespace NNH
 
         }
 
+        public Matrix<float> FeedForward(MNISTImage image)
+        {
+            Matrix<float> input = CreateMatrix.Dense<float>(input_size, 1, 0);
+            int x = 0;
+            foreach (int grey in image.pixels)
+            {
+                input[x, 0] = (float)grey / 255;
+                x++;
+            }
+
+            return network.FeedForward(input);
+        }
+
 
         public void Train(List<MNISTImage> images)
         {
