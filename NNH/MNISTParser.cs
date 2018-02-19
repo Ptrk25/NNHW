@@ -71,15 +71,22 @@ namespace NNH
             return true;
         }
 
-        public List<MNISTImage> Get1000RndImages()
+        public List<MNISTImage> GetRndImages(int amount)
         {
             List<MNISTImage> rndImages = new List<MNISTImage>();
 
             if (mnistImages.Count == 0)
                 mnistImages = mnistImage_copy;
 
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < amount; i++)
             {
+                if(amount > mnistImages.Count)
+                {
+                    mnistImage_copy.AddRange(mnistImages);
+                    mnistImages = mnistImage_copy;
+                    mnistImages.Reverse();
+                }
+
                 int number = rnd.Next(0, mnistImages.Count-1);
                 rndImages.Add(mnistImages[number]);
                 mnistImage_copy.Add(mnistImages[number]);

@@ -106,12 +106,35 @@ namespace NNH
                 nn_parser = new NeuralNetworkParser();
 
                 for (int i = 0; i < 100; i++)
-                    nn_parser.Train(mnist_parser.Get1000RndImages());
+                    nn_parser.Train(mnist_parser.GetRndImages(1000));
 
-                MNISTImage img = mnist_parser.GetImage(0);
-                Matrix<float> result = nn_parser.FeedForward(img);
+                //MNISTImage img = mnist_parser.GetImage(0);
+                //Matrix<float> result = nn_parser.FeedForward(img);
 
-                img.getImageAsBitmap().Save("test.png");
+                int success = 0;
+                float maxnum = 0;
+                int num = 0;
+                List<MNISTImage> test_images = mnist_parser.GetRndImages(100);
+
+                foreach(MNISTImage img in test_images)
+                {
+                    Matrix<float> result = nn_parser.FeedForward(img);
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (result[i, 0] > maxnum)
+                        {
+                            maxnum = result[i, 0];
+                            num = i;
+                        }
+                            
+                    }
+                    maxnum = 0;
+                    if (num == img.label)
+                        success++;
+                }
+
+                return;
+
             }
 
             //mnist_parser.parseMNIST();
