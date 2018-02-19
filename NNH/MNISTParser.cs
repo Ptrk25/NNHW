@@ -25,20 +25,10 @@ namespace NNH
             rnd = new Random();
         }
 
-        public bool parseMNIST()
+        public bool parseLabels()
         {
-            bool success = true;
             fileLabels = File.ReadAllBytes(labelsPath);
-            fileImages = File.ReadAllBytes(imagesPath);
 
-            success = parseLabels();
-            success = parseImages();
-
-            return success;
-        }
-
-        private bool parseLabels()
-        {
             // Check MAGIC
             if (BitConverter.ToInt32(fileLabels, 0) != LABEL_MAGIC)
                 return false;
@@ -52,8 +42,10 @@ namespace NNH
             return true;
         }
 
-        private bool parseImages()
+        public bool parseImages()
         {
+            fileImages = File.ReadAllBytes(imagesPath);
+
             // Check MAGIC
             if (BitConverter.ToInt32(fileImages, 0) != IMAGES_MAGIC)
                 return false;
