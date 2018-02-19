@@ -27,18 +27,16 @@ namespace NNH
             _gdw = new List<Matrix<float>>();
         }
 
-        public static GradientDescent operator +(GradientDescent G1, GradientDescent G2)
+        public void Add(GradientDescent G1)
         {
-            GradientDescent result = new GradientDescent();
-            for(int i = 0; i < G1._gdw.Count; i++)
+            for (int i = 0; i < G1._gdw.Count; i++)
             {
-                result._gdw.Add(G1._gdw[i].Add(G2._gdw[i]));
-                result._gdb.Add(G1._gdb[i].Add(G2._gdb[i]));
+                _gdw[i] = _gdw[i].Add(G1._gdw[i]);
+                _gdb[i] = _gdb[i].Add(G1._gdb[i]);
             }
-            return result;
         }
 
-        public void AvgDescent(int samplesize, float rate)
+        public void AvgDescent(float rate)
         {
             double sum = 0;
             foreach(Matrix<float> m in _gdb)
@@ -128,9 +126,10 @@ namespace NNH
             GradientDescent g = Backpropagation(data[0]);
             for(int i = 1; i < data.Count; i++)
             {
-                g = g + Backpropagation(data[0]);
+                GradientDescent temp = Backpropagation(data[i]);
+                g.Add(temp);
             }
-            g.AvgDescent(data.Count, rate);
+            g.AvgDescent(rate);
                
             for(int i = 0; i < _weights.Count; i++)
             {
