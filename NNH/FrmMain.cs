@@ -26,8 +26,9 @@ namespace NNH
 
         private HashSet<Control> controlsToMove = new HashSet<Control>();
 
-        private MNISTParser mnist_parser;
 
+        private OpenFileDialog ofdLabels, ofdImages;
+        private MNISTParser mnist_parser;
         private NeuralNetworkParser nn_parser;
 
         public FrmMain()
@@ -36,7 +37,6 @@ namespace NNH
             Application.AddMessageFilter(this);
             controlsToMove.Add(this);
             controlsToMove.Add(this.pnlTitlebar);
-
         }
 
         // Fensterverschiebungscode
@@ -59,8 +59,8 @@ namespace NNH
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {
-            //this.WindowState = FormWindowState.Minimized;  
-            Matrix<float> input = CreateMatrix.Dense<float>(2, 1, 1);
+            this.WindowState = FormWindowState.Minimized;  
+            /*Matrix<float> input = CreateMatrix.Dense<float>(2, 1, 1);
 
             Matrix<float> doutput = CreateMatrix.Dense<float>(2, 1, new float[] { 1, 0 });
             TrainingData data = new TrainingData();
@@ -72,7 +72,7 @@ namespace NNH
 
             Matrix<float> output = nn_parser.network.FeedForward(input);
             lblP0.Text = output[0, 0].ToString();
-            lblP1.Text = output[1, 0].ToString();
+            lblP1.Text = output[1, 0].ToString();*/
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -80,24 +80,50 @@ namespace NNH
             Application.Exit();
         }
 
-        private void oFDMNIST_FileOk(object sender, CancelEventArgs e)
-        {
-            //mnist_parser = new MNISTParser(oFDMNIST.FileName);
-        }
-
         private void btnMNISTOpen_Click(object sender, EventArgs e)
         {
-            /*
-            oFDMNIST.ShowDialog();
-            mnist_parser = new MNISTParser("C:/Users/Patrick/Downloads/train-images.idx3-ubyte", "C:/Users/Patrick/Downloads/train-labels.idx1-ubyte");
-            mnist_parser.parseMNIST();
-            */
-            nn_parser = new NeuralNetworkParser();
+            ofdLabels = new OpenFileDialog();
+            ofdImages = new OpenFileDialog();
+            ofdLabels.Filter = "MNIST label file (*.idx1-ubyte)|*.idx1-ubyte";
+            ofdImages.Filter = "MNIST images file (*.idx3-ubyte)|*.idx3-ubyte";
+
+            if(ofdLabels.ShowDialog() == DialogResult.OK && ofdImages.ShowDialog() == DialogResult.OK)
+            {
+                mnist_parser = new MNISTParser(ofdImages.FileName, ofdLabels.FileName);
+                // Lese MNIST Lables ein
+                if(!mnist_parser.parseLabels())
+                {
+                    MessageBox.Show("Fehler", "Fehlerhafte Labeldatenbank!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Lese MNIST Bilder ein
+                if (!mnist_parser.parseImages())
+                {
+                    MessageBox.Show("Fehler", "Fehlerhafte Bilderdatenbank!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                nn_parser = new NeuralNetworkParser();
+
+                for (int i = 0; i < 100; i++)
+                    nn_parser.Train(mnist_parser.Get1000RndImages());
+
+                MNISTImage img = mnist_parser.GetImage(0);
+                Matrix<float> result = nn_parser.FeedForward(img);
+
+                img.getImageAsBitmap().Save("test.png");
+            }
+
+            //mnist_parser.parseMNIST();
+
+            /*nn_parser = new NeuralNetworkParser();
             nn_parser.Init(2);
             Matrix<float> input = CreateMatrix.Dense<float>(2, 1, 1);
             Matrix<float> output = nn_parser.network.FeedForward(input);
             lblP0.Text = output[0, 0].ToString();
-            lblP1.Text = output[1, 0].ToString();
+            lblP1.Text = output[1, 0].ToString();*/
+
+            return;
         }
 
         private void btnImgDelete_Click(object sender, EventArgs e)

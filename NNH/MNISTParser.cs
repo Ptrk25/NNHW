@@ -25,20 +25,10 @@ namespace NNH
             rnd = new Random();
         }
 
-        public bool parseMNIST()
+        public bool parseLabels()
         {
-            bool success = true;
             fileLabels = File.ReadAllBytes(labelsPath);
-            fileImages = File.ReadAllBytes(imagesPath);
 
-            success = parseLabels();
-            success = parseImages();
-
-            return success;
-        }
-
-        private bool parseLabels()
-        {
             // Check MAGIC
             if (BitConverter.ToInt32(fileLabels, 0) != LABEL_MAGIC)
                 return false;
@@ -52,8 +42,10 @@ namespace NNH
             return true;
         }
 
-        private bool parseImages()
+        public bool parseImages()
         {
+            fileImages = File.ReadAllBytes(imagesPath);
+
             // Check MAGIC
             if (BitConverter.ToInt32(fileImages, 0) != IMAGES_MAGIC)
                 return false;
@@ -79,14 +71,14 @@ namespace NNH
             return true;
         }
 
-        public List<MNISTImage> get100RndImages()
+        public List<MNISTImage> Get1000RndImages()
         {
             List<MNISTImage> rndImages = new List<MNISTImage>();
 
             if (mnistImages.Count == 0)
                 mnistImages = mnistImage_copy;
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 int number = rnd.Next(0, mnistImages.Count-1);
                 rndImages.Add(mnistImages[number]);
@@ -96,6 +88,12 @@ namespace NNH
 
             return rndImages;
         }
+
+        public MNISTImage GetImage(int index)
+        {
+            return mnistImages[index];
+        }
+
 
 
     }

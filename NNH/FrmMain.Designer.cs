@@ -100,7 +100,6 @@
             this.rbFast = new System.Windows.Forms.RadioButton();
             this.rbAutomatic = new System.Windows.Forms.RadioButton();
             this.rbManuell = new System.Windows.Forms.RadioButton();
-            this.oFDMNIST = new System.Windows.Forms.OpenFileDialog();
             this.pnlTitlebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
             this.pnlOptions.SuspendLayout();
@@ -999,10 +998,6 @@
             this.rbManuell.Text = "Manuell";
             this.rbManuell.UseVisualStyleBackColor = true;
             // 
-            // oFDMNIST
-            // 
-            this.oFDMNIST.FileOk += new System.ComponentModel.CancelEventHandler(this.oFDMNIST_FileOk);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1130,7 +1125,6 @@
         private System.Windows.Forms.Panel pnl5;
         private System.Windows.Forms.Label lblP5;
         private System.Windows.Forms.Label lbl5;
-        private System.Windows.Forms.OpenFileDialog oFDMNIST;
     }
 }
 

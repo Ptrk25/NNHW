@@ -11,18 +11,15 @@ namespace NNH
     class NeuralNetworkParser
     {
         public NeuralNetwork network;
-        private int input_size;
+        private int input_size = 784;
 
-        public void Init(int inputSize)
+        public NeuralNetworkParser()
         {
-            input_size = inputSize;
-
             network = new NeuralNetwork();
 
-            List<int> layers = new List<int> { input_size, 16, 16, 2 };
+            List<int> layers = new List<int> { input_size, 16, 16, 10 };
 
             network.Init(layers);
-
         }
 
         public Matrix<float> FeedForward(MNISTImage image)
