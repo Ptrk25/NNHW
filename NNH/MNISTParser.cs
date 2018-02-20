@@ -71,6 +71,16 @@ namespace NNH
             return true;
         }
 
+        public int getSizeInMB()
+        {
+            return (fileImages.Length + fileLabels.Length) / 1024 / 1024;
+        }
+
+        public int getEntriesCount()
+        {
+            return mnistImages.Count;
+        }
+
         public List<MNISTImage> GetRndImages(int amount)
         {
             List<MNISTImage> rndImages = new List<MNISTImage>();

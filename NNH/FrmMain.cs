@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -26,10 +27,14 @@ namespace NNH
 
         private HashSet<Control> controlsToMove = new HashSet<Control>();
 
-
         private OpenFileDialog ofdLabels, ofdImages;
+        private FrmMNISTOpen mNISTOpen;
+        private FrmMNISTLearn mNISTLearn;
         private MNISTParser mnist_parser;
         private NeuralNetworkParser nn_parser;
+
+        private Point lastPoint = Point.Empty;
+        private bool isMouseDown = false;
         
         public FrmMain()
         {
@@ -77,85 +82,88 @@ namespace NNH
 
             if(ofdLabels.ShowDialog() == DialogResult.OK && ofdImages.ShowDialog() == DialogResult.OK)
             {
-                mnist_parser = new MNISTParser(ofdImages.FileName, ofdLabels.FileName);
-                // Lese MNIST Lables ein
-                if(!mnist_parser.parseLabels())
-                {
-                    MessageBox.Show("Fehler", "Fehlerhafte Labeldatenbank!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                // Lese MNIST Bilder ein
-                if (!mnist_parser.parseImages())
-                {
-                    MessageBox.Show("Fehler", "Fehlerhafte Bilderdatenbank!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
 
-                nn_parser = new NeuralNetworkParser();
-                
-                return;
-
+                mNISTOpen = new FrmMNISTOpen();
+                mNISTOpen.StartPosition = FormStartPosition.CenterParent;
+                bwLoadMNIST.RunWorkerAsync();
+                mNISTOpen.ShowDialog(this);
+               
             }
-
-            //mnist_parser.parseMNIST();
-
-            /*nn_parser = new NeuralNetworkParser();
-            nn_parser.Init(2);
-            Matrix<float> input = CreateMatrix.Dense<float>(2, 1, 1);
-            Matrix<float> output = nn_parser.network.FeedForward(input);
-            lblP0.Text = output[0, 0].ToString();
-            lblP1.Text = output[1, 0].ToString();*/
-            return;
         }
 
         private void btnImgDelete_Click(object sender, EventArgs e)
         {
+            if(picBoxImage.Image != null)
+            {
+                picBoxImage.Image = null;
+                Invalidate();
+                lblRecognizedNumBig.Text = "";
 
+                lblP0.Text = "0,00 %";
+                lblP1.Text = "0,00 %";
+                lblP2.Text = "0,00 %";
+                lblP3.Text = "0,00 %";
+                lblP4.Text = "0,00 %";
+                lblP5.Text = "0,00 %";
+                lblP6.Text = "0,00 %";
+                lblP7.Text = "0,00 %";
+                lblP8.Text = "0,00 %";
+                lblP9.Text = "0,00 %";
+            }
         }
 
         private void btnNNOpen_Click(object sender, EventArgs e)
         {
-            /*
-            Matrix<float> doutput = CreateMatrix.Dense<float>(10, 1, new float[] { 0, 1, 0, 0, 0, 0, 0, 0, 0, 0});
-            TrainingData data = new TrainingData(nn_parser.ToTrainingData(mnist_parser.GetImage(1))._input, doutput);
-            List<TrainingData> dataList = new List<TrainingData> { data };
+  
             
+        }
 
-            List<MNISTImage> imgList = mnist_parser.GetImages(0, 5);
-
-            for(int i = 0; i < 10; i++)
-                nn_parser.Train(imgList);
-
-            Matrix<float> output = nn_parser.network.FeedForward(nn_parser.ToTrainingData(imgList[1])._input);
-
-            lblP0.Text = output[0, 0].ToString();
-            lblP1.Text = output[1, 0].ToString();
-            lblP2.Text = output[2, 0].ToString();
-            lblP3.Text = output[3, 0].ToString();
-            lblP4.Text = output[4, 0].ToString();
-            lblP5.Text = output[5, 0].ToString();
-            lblP6.Text = output[6, 0].ToString();
-            lblP7.Text = output[7, 0].ToString();
-            lblP8.Text = output[8, 0].ToString();
-            lblP9.Text = output[9, 0].ToString();
+        private void btnNNSave_Click(object sender, EventArgs e)
+        {
             
-            */
+        }
+
+        private void bwLoadMNIST_DoWork(object sender, DoWorkEventArgs e)
+        {
+            mnist_parser = new MNISTParser(ofdImages.FileName, ofdLabels.FileName);
+            // Lese MNIST Lables ein
+            if (!mnist_parser.parseLabels())
+            {
+                MessageBox.Show("Fehler", "Fehlerhafte Labeldatenbank!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            // Lese MNIST Bilder ein
+            if (!mnist_parser.parseImages())
+            {
+                MessageBox.Show("Fehler", "Fehlerhafte Bilderdatenbank!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            // Close Dialog + Set Labels
+            Invoke((MethodInvoker)delegate
+            {
+                mNISTOpen.Close();
+                lblEntriesCount.Text = mnist_parser.getEntriesCount().ToString();
+                lblSizeCount.Text = mnist_parser.getSizeInMB().ToString() + " MB";
+                btnNNLearn.Enabled = true;
+            });
+        }
+
+        private void bwNNLearn_DoWork(object sender, DoWorkEventArgs e)
+        {
             List<MNISTImage> imgList = mnist_parser.GetRndImages(1000);
+            nn_parser = new NeuralNetworkParser();
+            int einheiten = Int32.Parse(tbEinheit.Text);
+            int picsPerEinheit = Int32.Parse(tbPicPerEinheit.Text);
+            float lr = float.Parse(tbLR.Text);
 
-            for (int i = 0; i < 1000; i++)
-                nn_parser.Train(mnist_parser.GetRndImages(30));
+            for (int i = 0; i < einheiten; i++)
+                nn_parser.Train(mnist_parser.GetRndImages(picsPerEinheit), lr);
 
-            //MNISTImage img = mnist_parser.GetImage(0);
-            //Matrix<float> result = nn_parser.FeedForward(img);
-
-            
             int success = 0;
             float maxnum = 0;
             int num = 0;
             int[] nums = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             int[] numsC = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            //List<MNISTImage> test_images = new List<MNISTImage> { mnist_parser.GetImage(0), mnist_parser.GetImage(1) };// mnist_parser.GetRndImages(10000);
-                
+
             foreach (MNISTImage img in imgList)
             {
                 Matrix<float> result = nn_parser.FeedForward(img);
@@ -179,17 +187,139 @@ namespace NNH
                 }
             }
             float success_rate = ((float)success / (float)imgList.Count);
-            lblErrorCount.Text = success_rate.ToString();
-            
-        return;
-            
+
+            Invoke((MethodInvoker)delegate
+            {
+                mNISTLearn.Close();
+                lblErrorCount.Text = (Math.Round(success_rate * 100, 2)).ToString() + " %";
+                lblGenCount.Text = einheiten.ToString();
+            });
             
         }
 
-
-        private void pnlTitlebar_Paint(object sender, PaintEventArgs e)
+        private void btnNNLearn_Click(object sender, EventArgs e)
         {
+            mNISTLearn = new FrmMNISTLearn();
+            mNISTLearn.StartPosition = FormStartPosition.CenterParent;
+            bwNNLearn.RunWorkerAsync();
+            mNISTLearn.ShowDialog();
 
         }
+
+        private void picBoxImage_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = e.Location;
+            if(nn_parser != null)
+                isMouseDown = true;
+        }
+
+        private void picBoxImage_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isMouseDown == true)//check to see if the mouse button is down
+
+            {
+
+                if (lastPoint != null)//if our last point is not null, which in this case we have assigned above
+
+                {
+
+                    if (picBoxImage.Image == null)//if no available bitmap exists on the picturebox to draw on
+
+                    {
+                        //create a new bitmap
+                        Bitmap bmp = new Bitmap(picBoxImage.Width, picBoxImage.Height);
+                        Graphics g = Graphics.FromImage(bmp);
+                        g.Clear(Color.White);
+
+                        picBoxImage.Image = bmp; //assign the picturebox.Image property to the bitmap created
+
+                    }
+
+                    using (Graphics g = Graphics.FromImage(picBoxImage.Image))
+
+                    {//we need to create a Graphics object to draw on the picture box, its our main tool
+
+                        //when making a Pen object, you can just give it color only or give it color and pen size
+
+                        // g.DrawLine(new Pen(Color.Black, 10), lastPoint, e.Location);
+                        Rectangle rect = new Rectangle(lastPoint, new Size(15, 15));
+                        Brush brush = new SolidBrush(Color.Black);
+                        g.DrawEllipse(new Pen(Color.Black, 2), rect);
+                        g.FillEllipse(brush, rect);
+                        g.SmoothingMode = SmoothingMode.AntiAlias;
+                        //this is to give the drawing a more smoother, less sharper look
+
+                    }
+
+                    picBoxImage.Invalidate();//refreshes the picturebox
+
+                    lastPoint = e.Location;//keep assigning the lastPoint to the current mouse position
+
+                }
+
+            }
+        }
+
+        private void picBoxImage_MouseUp(object sender, MouseEventArgs e)
+        {
+            lastPoint = Point.Empty;
+            isMouseDown = false;
+
+            if(nn_parser != null)
+            {
+                Bitmap drawnPic = new Bitmap(picBoxImage.Image, 28, 28);
+                MNISTImage drawnImg = new MNISTImage(drawnPic);
+
+                Matrix<float> result = nn_parser.FeedForward(drawnImg);
+
+                drawnImg.getImageAsBitmap().Save("test.png");
+
+                float maxnum = 0;
+                int num = 0;
+
+                for (int i = 0; i < 10; i++)
+                {
+
+                    if (result[i, 0] > maxnum)
+                    {
+                        maxnum = result[i, 0];
+                        num = i;
+                    }
+
+                }
+
+                lblRecognizedNumBig.Text = num.ToString();
+                outputResults(result);
+            }
+
+        }
+
+        private void outputResults(Matrix<float> result)
+        {
+            double p0 = Math.Round(result[0, 0] * 100, 2);
+            double p1 = Math.Round(result[1, 0] * 100, 2);
+            double p2 = Math.Round(result[2, 0] * 100, 2);
+            double p3 = Math.Round(result[3, 0] * 100, 2);
+            double p4 = Math.Round(result[4, 0] * 100, 2);
+            double p5 = Math.Round(result[5, 0] * 100, 2);
+            double p6 = Math.Round(result[6, 0] * 100, 2);
+            double p7 = Math.Round(result[7, 0] * 100, 2);
+            double p8 = Math.Round(result[8, 0] * 100, 2);
+            double p9 = Math.Round(result[9, 0] * 100, 2);
+
+            lblP0.Text = p0.ToString() + " %";
+            lblP1.Text = p1.ToString() + " %";
+            lblP2.Text = p2.ToString() + " %";
+            lblP3.Text = p3.ToString() + " %";
+            lblP4.Text = p4.ToString() + " %";
+            lblP5.Text = p5.ToString() + " %";
+            lblP6.Text = p6.ToString() + " %";
+            lblP7.Text = p7.ToString() + " %";
+            lblP8.Text = p8.ToString() + " %";
+            lblP9.Text = p9.ToString() + " %";
+
+            //lblP0.BackColor = Color.FromArgb(0, Convert.ToInt32(255*p0), Convert.ToInt32(255 * p0), Convert.ToInt32(255 * p0));
+        }
+
     }
 }
