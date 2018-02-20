@@ -43,7 +43,6 @@
             this.pnlMNISTHeader = new System.Windows.Forms.Panel();
             this.lblMNIST = new System.Windows.Forms.Label();
             this.pnlNN = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblErrorCount = new System.Windows.Forms.Label();
             this.lblGenCount = new System.Windows.Forms.Label();
             this.btnNNSave = new System.Windows.Forms.Button();
@@ -310,7 +309,6 @@
             // pnlNN
             // 
             this.pnlNN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(163)))), ((int)(((byte)(219)))));
-            this.pnlNN.Controls.Add(this.label1);
             this.pnlNN.Controls.Add(this.lblErrorCount);
             this.pnlNN.Controls.Add(this.lblGenCount);
             this.pnlNN.Controls.Add(this.btnNNSave);
@@ -322,15 +320,6 @@
             this.pnlNN.Name = "pnlNN";
             this.pnlNN.Size = new System.Drawing.Size(200, 208);
             this.pnlNN.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 137);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "label1";
             // 
             // lblErrorCount
             // 
@@ -1137,7 +1126,6 @@
         private System.Windows.Forms.Panel pnl5;
         private System.Windows.Forms.Label lblP5;
         private System.Windows.Forms.Label lbl5;
-        private System.Windows.Forms.Label label1;
     }
 }
 
