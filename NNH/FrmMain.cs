@@ -30,7 +30,7 @@ namespace NNH
         private OpenFileDialog ofdLabels, ofdImages;
         private MNISTParser mnist_parser;
         private NeuralNetworkParser nn_parser;
-
+        
         public FrmMain()
         {
             InitializeComponent();
@@ -60,19 +60,7 @@ namespace NNH
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;  
-            /*Matrix<float> input = CreateMatrix.Dense<float>(2, 1, 1);
-
-            Matrix<float> doutput = CreateMatrix.Dense<float>(2, 1, new float[] { 1, 0 });
-            TrainingData data = new TrainingData();
-            data._input = input;
-            data._output = doutput;
-
-            List<TrainingData> datalist = new List<TrainingData> { data };
-            nn_parser.network.TrainingEpoch(datalist , 0.2f);
-
-            Matrix<float> output = nn_parser.network.FeedForward(input);
-            lblP0.Text = output[0, 0].ToString();
-            lblP1.Text = output[1, 0].ToString();*/
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -104,35 +92,7 @@ namespace NNH
                 }
 
                 nn_parser = new NeuralNetworkParser();
-
-                for (int i = 0; i < 100; i++)
-                    nn_parser.Train(mnist_parser.GetRndImages(1000));
-
-                //MNISTImage img = mnist_parser.GetImage(0);
-                //Matrix<float> result = nn_parser.FeedForward(img);
-
-                int success = 0;
-                float maxnum = 0;
-                int num = 0;
-                List<MNISTImage> test_images = mnist_parser.GetRndImages(100);
-
-                foreach(MNISTImage img in test_images)
-                {
-                    Matrix<float> result = nn_parser.FeedForward(img);
-                    for (int i = 0; i < 10; i++)
-                    {
-                        if (result[i, 0] > maxnum)
-                        {
-                            maxnum = result[i, 0];
-                            num = i;
-                        }
-                            
-                    }
-                    maxnum = 0;
-                    if (num == img.label)
-                        success++;
-                }
-
+                
                 return;
 
             }
@@ -145,7 +105,6 @@ namespace NNH
             Matrix<float> output = nn_parser.network.FeedForward(input);
             lblP0.Text = output[0, 0].ToString();
             lblP1.Text = output[1, 0].ToString();*/
-
             return;
         }
 
@@ -153,6 +112,80 @@ namespace NNH
         {
 
         }
+
+        private void btnNNOpen_Click(object sender, EventArgs e)
+        {
+            /*
+            Matrix<float> doutput = CreateMatrix.Dense<float>(10, 1, new float[] { 0, 1, 0, 0, 0, 0, 0, 0, 0, 0});
+            TrainingData data = new TrainingData(nn_parser.ToTrainingData(mnist_parser.GetImage(1))._input, doutput);
+            List<TrainingData> dataList = new List<TrainingData> { data };
+            
+
+            List<MNISTImage> imgList = mnist_parser.GetImages(0, 5);
+
+            for(int i = 0; i < 10; i++)
+                nn_parser.Train(imgList);
+
+            Matrix<float> output = nn_parser.network.FeedForward(nn_parser.ToTrainingData(imgList[1])._input);
+
+            lblP0.Text = output[0, 0].ToString();
+            lblP1.Text = output[1, 0].ToString();
+            lblP2.Text = output[2, 0].ToString();
+            lblP3.Text = output[3, 0].ToString();
+            lblP4.Text = output[4, 0].ToString();
+            lblP5.Text = output[5, 0].ToString();
+            lblP6.Text = output[6, 0].ToString();
+            lblP7.Text = output[7, 0].ToString();
+            lblP8.Text = output[8, 0].ToString();
+            lblP9.Text = output[9, 0].ToString();
+            
+            */
+            List<MNISTImage> imgList = mnist_parser.GetRndImages(1000);
+
+            for (int i = 0; i < 1000; i++)
+                nn_parser.Train(mnist_parser.GetRndImages(30));
+
+            //MNISTImage img = mnist_parser.GetImage(0);
+            //Matrix<float> result = nn_parser.FeedForward(img);
+
+            
+            int success = 0;
+            float maxnum = 0;
+            int num = 0;
+            int[] nums = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            int[] numsC = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            //List<MNISTImage> test_images = new List<MNISTImage> { mnist_parser.GetImage(0), mnist_parser.GetImage(1) };// mnist_parser.GetRndImages(10000);
+                
+            foreach (MNISTImage img in imgList)
+            {
+                Matrix<float> result = nn_parser.FeedForward(img);
+
+                for (int i = 0; i < 10; i++)
+                {
+
+                    if (result[i, 0] > maxnum)
+                    {
+                        maxnum = result[i, 0];
+                        num = i;
+                    }
+
+                }
+                maxnum = 0;
+                nums[num]++;
+                if (num == img.label)
+                {
+                    numsC[num]++;
+                    success++;
+                }
+            }
+            float success_rate = ((float)success / (float)imgList.Count);
+            lblErrorCount.Text = success_rate.ToString();
+            
+        return;
+            
+            
+        }
+
 
         private void pnlTitlebar_Paint(object sender, PaintEventArgs e)
         {

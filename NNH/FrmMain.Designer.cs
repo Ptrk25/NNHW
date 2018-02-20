@@ -43,6 +43,7 @@
             this.pnlMNISTHeader = new System.Windows.Forms.Panel();
             this.lblMNIST = new System.Windows.Forms.Label();
             this.pnlNN = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblErrorCount = new System.Windows.Forms.Label();
             this.lblGenCount = new System.Windows.Forms.Label();
             this.btnNNSave = new System.Windows.Forms.Button();
@@ -80,7 +81,7 @@
             this.lblP7 = new System.Windows.Forms.Label();
             this.lbl7 = new System.Windows.Forms.Label();
             this.pnl2 = new System.Windows.Forms.Panel();
-            this.lnlP2 = new System.Windows.Forms.Label();
+            this.lblP2 = new System.Windows.Forms.Label();
             this.lbl2 = new System.Windows.Forms.Label();
             this.pnl6 = new System.Windows.Forms.Panel();
             this.lblP6 = new System.Windows.Forms.Label();
@@ -309,6 +310,7 @@
             // pnlNN
             // 
             this.pnlNN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(163)))), ((int)(((byte)(219)))));
+            this.pnlNN.Controls.Add(this.label1);
             this.pnlNN.Controls.Add(this.lblErrorCount);
             this.pnlNN.Controls.Add(this.lblGenCount);
             this.pnlNN.Controls.Add(this.btnNNSave);
@@ -320,6 +322,15 @@
             this.pnlNN.Name = "pnlNN";
             this.pnlNN.Size = new System.Drawing.Size(200, 208);
             this.pnlNN.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 137);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "label1";
             // 
             // lblErrorCount
             // 
@@ -375,6 +386,7 @@
             this.btnNNOpen.TabIndex = 2;
             this.btnNNOpen.Text = "          Öffnen";
             this.btnNNOpen.UseVisualStyleBackColor = false;
+            this.btnNNOpen.Click += new System.EventHandler(this.btnNNOpen_Click);
             // 
             // lblError
             // 
@@ -750,23 +762,23 @@
             // 
             this.pnl2.BackColor = System.Drawing.Color.White;
             this.pnl2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl2.Controls.Add(this.lnlP2);
+            this.pnl2.Controls.Add(this.lblP2);
             this.pnl2.Controls.Add(this.lbl2);
             this.pnl2.Location = new System.Drawing.Point(261, 55);
             this.pnl2.Name = "pnl2";
             this.pnl2.Size = new System.Drawing.Size(105, 88);
             this.pnl2.TabIndex = 10;
             // 
-            // lnlP2
+            // lblP2
             // 
-            this.lnlP2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lnlP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnlP2.Location = new System.Drawing.Point(0, 62);
-            this.lnlP2.Name = "lnlP2";
-            this.lnlP2.Size = new System.Drawing.Size(103, 24);
-            this.lnlP2.TabIndex = 1;
-            this.lnlP2.Text = "0,00 %";
-            this.lnlP2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblP2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblP2.Location = new System.Drawing.Point(0, 62);
+            this.lblP2.Name = "lblP2";
+            this.lblP2.Size = new System.Drawing.Size(103, 24);
+            this.lblP2.TabIndex = 1;
+            this.lblP2.Text = "0,00 %";
+            this.lblP2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl2
             // 
@@ -1102,7 +1114,7 @@
         private System.Windows.Forms.Label lblP3;
         private System.Windows.Forms.Label lbl3;
         private System.Windows.Forms.Panel pnl2;
-        private System.Windows.Forms.Label lnlP2;
+        private System.Windows.Forms.Label lblP2;
         private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.Panel pnl1;
         private System.Windows.Forms.Label lblP1;
@@ -1125,6 +1137,7 @@
         private System.Windows.Forms.Panel pnl5;
         private System.Windows.Forms.Label lblP5;
         private System.Windows.Forms.Label lbl5;
+        private System.Windows.Forms.Label label1;
     }
 }
 

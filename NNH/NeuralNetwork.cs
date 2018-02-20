@@ -36,16 +36,15 @@ namespace NNH
             }
         }
 
-        public void AvgDescent(float rate)
+        public void AvgDescent(float rate, int batch_size)
         {
-            double sum = 0;
             foreach(Matrix<float> m in _gdb)
             {
                 for(int x = 0; x < m.RowCount; x++)
                 {
                     for(int y = 0; y < m.ColumnCount; y++)
                     {
-                        sum += m[x, y] * m[x, y];
+                        m[x, y] = -rate * m[x, y] / (float)batch_size;
                     }    
                 }
             }
@@ -55,30 +54,7 @@ namespace NNH
                 {
                     for(int y = 0; y < m.ColumnCount; y++)
                     {
-                        sum += m[x, y] * m[x, y];
-                    }    
-                }
-            }
-
-            double len = Math.Sqrt(sum);
-
-            foreach(Matrix<float> m in _gdb)
-            {
-                for(int x = 0; x < m.RowCount; x++)
-                {
-                    for(int y = 0; y < m.ColumnCount; y++)
-                    {
-                        m[x, y] = -rate * m[x, y] / (float)len;
-                    }    
-                }
-            }
-            foreach(Matrix<float> m in _gdw)
-            {
-                for(int x = 0; x < m.RowCount; x++)
-                {
-                    for(int y = 0; y < m.ColumnCount; y++)
-                    {
-                        m[x, y] = -rate * m[x, y] / (float)len;
+                        m[x, y] = -rate * m[x, y] / (float)batch_size;
                     }    
                 }
             }
@@ -129,9 +105,9 @@ namespace NNH
                 GradientDescent temp = Backpropagation(data[i]);
                 g.Add(temp);
             }
-            g.AvgDescent(rate);
+            g.AvgDescent(rate, data.Count);
                
-            for(int i = 0; i < _weights.Count; i++)
+            for( int i = 0; i < _weights.Count; i++)
             {
                 _weights[i] = _weights[i].Add(g._gdw[i]);
             }
@@ -169,7 +145,7 @@ namespace NNH
             Matrix<float> dw;
             for(int x = 0; x < db.RowCount; x++)
             {
-                db[x, 0]= (float)CostDerivative(a[x, 0], data._output[x, 0]) * (float)Derivative(lz[lz.Count - 1][x, 0]);
+                db[x, 0]= (float)CostDerivative(a[x, 0], data._output[x, 0] ) * (float)Derivative(lz[lz.Count - 1][x, 0]);
             }
             dw = db.Multiply(la[la.Count - 2].Transpose());
        
@@ -179,9 +155,9 @@ namespace NNH
             for(int i = _weights.Count - 2; i >= 0; i--)
             {
                 db = _weights[i+1].Transpose().Multiply(db);
-                for(int x = 0; x < db.RowCount; x++)
+                for (int x = 0; x < db.RowCount; x++)
                 {
-                    db[x, 0]= (float)Derivative(lz[i][x, 0]);
+                    db[x, 0] = db[x, 0] * (float)Derivative(lz[i][x, 0]);
                 }
                 dw = db.Multiply(la[i].Transpose());
 
@@ -205,18 +181,18 @@ namespace NNH
 
         private double Sigmoid(double x)
         {
-            return 1 / (1 + Math.Exp(-2 * x));
+            return 1 / (1 + Math.Exp(-x));
         }
 
         private double Derivative(double x)
         {
             double s = Sigmoid(x);
-            return 1 - (Math.Pow(s, 2));
+            return s * (1 - s);
         }
 
         private double CostDerivative(float x, float y)
         {
-            return (x - y);
+            return 2*(x - y);
         }
     }
 }

@@ -96,6 +96,16 @@ namespace NNH
             return rndImages;
         }
 
+        public List<MNISTImage> GetImages(int from, int to)
+        {
+            List<MNISTImage> result = new List<MNISTImage>();
+            for(int i = from; i <= to; i++)
+            {
+                result.Add(mnistImages[i]);
+            }
+            return result;
+        }
+
         public MNISTImage GetImage(int index)
         {
             return mnistImages[index];
