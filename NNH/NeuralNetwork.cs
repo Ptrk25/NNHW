@@ -172,13 +172,35 @@ namespace NNH
             return result;
         }
 
-        public void Save()
+        public void Save(String filePth)
         {
+            var dict = new Dictionary<String, Matrix<float>>();
+            for(int i = 0; i < _weights.Count; i++)
+            {
+                dict.Add("w" + i, _weights[i]);
+            }
+            for (int i = 0; i < _biases.Count; i++)
+            {
+                dict.Add("b" + i, _biases[i]);
+            }
+            MatlabWriter.Write(filePth, dict);
         }
 
-        public void Load()
+        public void Load(String filePth)
         {
-            
+            _weights = new List<Matrix<float>>();
+            _biases = new List<Matrix<float>>();
+
+            List<MatlabMatrix> ms = MatlabReader.List(filePth);
+
+            for(int i = 0; i < ms.Count / 2; i++)
+            {
+                _weights.Add(MatlabReader.Unpack<float>(ms.Find(m => m.Name == "w" + i)));
+            }
+            for (int i = 0; i < ms.Count / 2; i++)
+            {
+                _biases.Add(MatlabReader.Unpack<float>(ms.Find(m => m.Name == "b" + i)));
+            }
         }
 
         private double Sigmoid(double x)
