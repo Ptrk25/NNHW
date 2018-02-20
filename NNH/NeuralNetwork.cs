@@ -6,6 +6,7 @@ using System;
 
 namespace NNH
 {
+
     struct TrainingData
     {
         public TrainingData(Matrix<float> input , Matrix<float> output)
