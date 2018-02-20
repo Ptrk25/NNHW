@@ -191,7 +191,7 @@ namespace NNH
             Invoke((MethodInvoker)delegate
             {
                 mNISTLearn.Close();
-                lblErrorCount.Text = (Math.Round(success_rate * 100, 2)).ToString() + " %";
+                lblErrorCount.Text = (100 - Math.Round(success_rate * 100, 2)).ToString() + " %";
                 lblGenCount.Text = einheiten.ToString();
             });
             
