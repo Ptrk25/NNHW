@@ -95,11 +95,14 @@
             this.lblP0 = new System.Windows.Forms.Label();
             this.lbl0 = new System.Windows.Forms.Label();
             this.pnlNNStatisticHeader = new System.Windows.Forms.Panel();
-            this.pnlSpeed = new System.Windows.Forms.Panel();
-            this.rbSlow = new System.Windows.Forms.RadioButton();
-            this.rbFast = new System.Windows.Forms.RadioButton();
-            this.rbAutomatic = new System.Windows.Forms.RadioButton();
-            this.rbManuell = new System.Windows.Forms.RadioButton();
+            this.tbLR = new System.Windows.Forms.TextBox();
+            this.lblLR = new System.Windows.Forms.Label();
+            this.tbPicPerEinheit = new System.Windows.Forms.TextBox();
+            this.lblPicPerEinheit = new System.Windows.Forms.Label();
+            this.tbEinheit = new System.Windows.Forms.TextBox();
+            this.lblEinheit = new System.Windows.Forms.Label();
+            this.bwLoadMNIST = new System.ComponentModel.BackgroundWorker();
+            this.bwNNLearn = new System.ComponentModel.BackgroundWorker();
             this.pnlTitlebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
             this.pnlOptions.SuspendLayout();
@@ -126,7 +129,6 @@
             this.pnl5.SuspendLayout();
             this.pnl0.SuspendLayout();
             this.pnlNNStatisticHeader.SuspendLayout();
-            this.pnlSpeed.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTitlebar
@@ -141,7 +143,6 @@
             this.pnlTitlebar.Name = "pnlTitlebar";
             this.pnlTitlebar.Size = new System.Drawing.Size(850, 47);
             this.pnlTitlebar.TabIndex = 1;
-            this.pnlTitlebar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTitlebar_Paint);
             // 
             // picBoxIcon
             // 
@@ -300,7 +301,7 @@
             this.lblMNIST.AutoSize = true;
             this.lblMNIST.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMNIST.ForeColor = System.Drawing.Color.Black;
-            this.lblMNIST.Location = new System.Drawing.Point(24, 15);
+            this.lblMNIST.Location = new System.Drawing.Point(22, 15);
             this.lblMNIST.Name = "lblMNIST";
             this.lblMNIST.Size = new System.Drawing.Size(160, 20);
             this.lblMNIST.TabIndex = 1;
@@ -358,6 +359,7 @@
             this.btnNNSave.Text = "Speichern";
             this.btnNNSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNNSave.UseVisualStyleBackColor = false;
+            this.btnNNSave.Click += new System.EventHandler(this.btnNNSave_Click);
             // 
             // btnNNOpen
             // 
@@ -434,6 +436,7 @@
             this.btnNNLearn.TabIndex = 3;
             this.btnNNLearn.Text = "Lernen";
             this.btnNNLearn.UseVisualStyleBackColor = false;
+            this.btnNNLearn.Click += new System.EventHandler(this.btnNNLearn_Click);
             // 
             // pnlMain
             // 
@@ -470,7 +473,7 @@
             // 
             // lblRecognizedNumBig
             // 
-            this.lblRecognizedNumBig.BackColor = System.Drawing.Color.Transparent;
+            this.lblRecognizedNumBig.BackColor = System.Drawing.Color.White;
             this.lblRecognizedNumBig.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblRecognizedNumBig.Font = new System.Drawing.Font("Microsoft Sans Serif", 71.99999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRecognizedNumBig.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -478,7 +481,6 @@
             this.lblRecognizedNumBig.Name = "lblRecognizedNumBig";
             this.lblRecognizedNumBig.Size = new System.Drawing.Size(219, 195);
             this.lblRecognizedNumBig.TabIndex = 1;
-            this.lblRecognizedNumBig.Text = "0";
             this.lblRecognizedNumBig.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlRegocnizedNumHeader
@@ -515,13 +517,16 @@
             // 
             // picBoxImage
             // 
-            this.picBoxImage.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxImage.BackColor = System.Drawing.Color.White;
             this.picBoxImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picBoxImage.Location = new System.Drawing.Point(0, 49);
             this.picBoxImage.Name = "picBoxImage";
             this.picBoxImage.Size = new System.Drawing.Size(219, 194);
             this.picBoxImage.TabIndex = 1;
             this.picBoxImage.TabStop = false;
+            this.picBoxImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picBoxImage_MouseDown);
+            this.picBoxImage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picBoxImage_MouseMove);
+            this.picBoxImage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picBoxImage_MouseUp);
             // 
             // pnlImgHeader
             // 
@@ -920,84 +925,86 @@
             // pnlNNStatisticHeader
             // 
             this.pnlNNStatisticHeader.BackColor = System.Drawing.Color.Orange;
-            this.pnlNNStatisticHeader.Controls.Add(this.pnlSpeed);
-            this.pnlNNStatisticHeader.Controls.Add(this.rbAutomatic);
+            this.pnlNNStatisticHeader.Controls.Add(this.tbLR);
+            this.pnlNNStatisticHeader.Controls.Add(this.lblLR);
+            this.pnlNNStatisticHeader.Controls.Add(this.tbPicPerEinheit);
+            this.pnlNNStatisticHeader.Controls.Add(this.lblPicPerEinheit);
+            this.pnlNNStatisticHeader.Controls.Add(this.tbEinheit);
+            this.pnlNNStatisticHeader.Controls.Add(this.lblEinheit);
             this.pnlNNStatisticHeader.Controls.Add(this.btnNNLearn);
-            this.pnlNNStatisticHeader.Controls.Add(this.rbManuell);
             this.pnlNNStatisticHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlNNStatisticHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlNNStatisticHeader.Name = "pnlNNStatisticHeader";
             this.pnlNNStatisticHeader.Size = new System.Drawing.Size(621, 49);
             this.pnlNNStatisticHeader.TabIndex = 8;
             // 
-            // pnlSpeed
+            // tbLR
             // 
-            this.pnlSpeed.Controls.Add(this.rbSlow);
-            this.pnlSpeed.Controls.Add(this.rbFast);
-            this.pnlSpeed.Location = new System.Drawing.Point(220, 0);
-            this.pnlSpeed.Name = "pnlSpeed";
-            this.pnlSpeed.Size = new System.Drawing.Size(244, 49);
-            this.pnlSpeed.TabIndex = 8;
+            this.tbLR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLR.Location = new System.Drawing.Point(415, 12);
+            this.tbLR.Name = "tbLR";
+            this.tbLR.Size = new System.Drawing.Size(52, 26);
+            this.tbLR.TabIndex = 9;
+            this.tbLR.Text = "0,1";
             // 
-            // rbSlow
+            // lblLR
             // 
-            this.rbSlow.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbSlow.AutoSize = true;
-            this.rbSlow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbSlow.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbSlow.ForeColor = System.Drawing.Color.Black;
-            this.rbSlow.Location = new System.Drawing.Point(123, 9);
-            this.rbSlow.Name = "rbSlow";
-            this.rbSlow.Size = new System.Drawing.Size(81, 30);
-            this.rbSlow.TabIndex = 8;
-            this.rbSlow.Text = "Langsam";
-            this.rbSlow.UseVisualStyleBackColor = true;
+            this.lblLR.AutoSize = true;
+            this.lblLR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLR.ForeColor = System.Drawing.Color.Black;
+            this.lblLR.Location = new System.Drawing.Point(377, 15);
+            this.lblLR.Name = "lblLR";
+            this.lblLR.Size = new System.Drawing.Size(32, 20);
+            this.lblLR.TabIndex = 8;
+            this.lblLR.Text = "LR";
             // 
-            // rbFast
+            // tbPicPerEinheit
             // 
-            this.rbFast.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbFast.AutoSize = true;
-            this.rbFast.Checked = true;
-            this.rbFast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbFast.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFast.ForeColor = System.Drawing.Color.Black;
-            this.rbFast.Location = new System.Drawing.Point(49, 9);
-            this.rbFast.Name = "rbFast";
-            this.rbFast.Size = new System.Drawing.Size(68, 30);
-            this.rbFast.TabIndex = 7;
-            this.rbFast.TabStop = true;
-            this.rbFast.Text = "Schnell";
-            this.rbFast.UseVisualStyleBackColor = true;
+            this.tbPicPerEinheit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPicPerEinheit.Location = new System.Drawing.Point(319, 12);
+            this.tbPicPerEinheit.Name = "tbPicPerEinheit";
+            this.tbPicPerEinheit.Size = new System.Drawing.Size(52, 26);
+            this.tbPicPerEinheit.TabIndex = 7;
+            this.tbPicPerEinheit.Text = "20";
             // 
-            // rbAutomatic
+            // lblPicPerEinheit
             // 
-            this.rbAutomatic.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbAutomatic.AutoSize = true;
-            this.rbAutomatic.Checked = true;
-            this.rbAutomatic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbAutomatic.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAutomatic.ForeColor = System.Drawing.Color.Black;
-            this.rbAutomatic.Location = new System.Drawing.Point(12, 9);
-            this.rbAutomatic.Name = "rbAutomatic";
-            this.rbAutomatic.Size = new System.Drawing.Size(102, 30);
-            this.rbAutomatic.TabIndex = 6;
-            this.rbAutomatic.TabStop = true;
-            this.rbAutomatic.Text = "Automatisch";
-            this.rbAutomatic.UseVisualStyleBackColor = true;
+            this.lblPicPerEinheit.AutoSize = true;
+            this.lblPicPerEinheit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPicPerEinheit.ForeColor = System.Drawing.Color.Black;
+            this.lblPicPerEinheit.Location = new System.Drawing.Point(166, 15);
+            this.lblPicPerEinheit.Name = "lblPicPerEinheit";
+            this.lblPicPerEinheit.Size = new System.Drawing.Size(147, 20);
+            this.lblPicPerEinheit.TabIndex = 6;
+            this.lblPicPerEinheit.Text = "Bilder pro Einheit";
             // 
-            // rbManuell
+            // tbEinheit
             // 
-            this.rbManuell.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbManuell.AutoSize = true;
-            this.rbManuell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbManuell.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbManuell.ForeColor = System.Drawing.Color.Black;
-            this.rbManuell.Location = new System.Drawing.Point(123, 9);
-            this.rbManuell.Name = "rbManuell";
-            this.rbManuell.Size = new System.Drawing.Size(71, 30);
-            this.rbManuell.TabIndex = 7;
-            this.rbManuell.Text = "Manuell";
-            this.rbManuell.UseVisualStyleBackColor = true;
+            this.tbEinheit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEinheit.Location = new System.Drawing.Point(104, 12);
+            this.tbEinheit.Name = "tbEinheit";
+            this.tbEinheit.Size = new System.Drawing.Size(52, 26);
+            this.tbEinheit.TabIndex = 5;
+            this.tbEinheit.Text = "100";
+            // 
+            // lblEinheit
+            // 
+            this.lblEinheit.AutoSize = true;
+            this.lblEinheit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEinheit.ForeColor = System.Drawing.Color.Black;
+            this.lblEinheit.Location = new System.Drawing.Point(13, 15);
+            this.lblEinheit.Name = "lblEinheit";
+            this.lblEinheit.Size = new System.Drawing.Size(85, 20);
+            this.lblEinheit.TabIndex = 4;
+            this.lblEinheit.Text = "Einheiten";
+            // 
+            // bwLoadMNIST
+            // 
+            this.bwLoadMNIST.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLoadMNIST_DoWork);
+            // 
+            // bwNNLearn
+            // 
+            this.bwNNLearn.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwNNLearn_DoWork);
             // 
             // FrmMain
             // 
@@ -1046,8 +1053,6 @@
             this.pnl0.ResumeLayout(false);
             this.pnlNNStatisticHeader.ResumeLayout(false);
             this.pnlNNStatisticHeader.PerformLayout();
-            this.pnlSpeed.ResumeLayout(false);
-            this.pnlSpeed.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1089,12 +1094,7 @@
         private System.Windows.Forms.Panel pnlNNStatistic;
         private System.Windows.Forms.PictureBox picBoxIcon;
         private System.Windows.Forms.Label lblRecognizedNumBig;
-        private System.Windows.Forms.RadioButton rbManuell;
-        private System.Windows.Forms.RadioButton rbAutomatic;
         private System.Windows.Forms.Panel pnlNNStatisticHeader;
-        private System.Windows.Forms.Panel pnlSpeed;
-        private System.Windows.Forms.RadioButton rbSlow;
-        private System.Windows.Forms.RadioButton rbFast;
         private System.Windows.Forms.Button btnImgDelete;
         private System.Windows.Forms.Panel pnl4;
         private System.Windows.Forms.Label lblP4;
@@ -1126,6 +1126,14 @@
         private System.Windows.Forms.Panel pnl5;
         private System.Windows.Forms.Label lblP5;
         private System.Windows.Forms.Label lbl5;
+        private System.Windows.Forms.TextBox tbEinheit;
+        private System.Windows.Forms.Label lblEinheit;
+        private System.Windows.Forms.TextBox tbLR;
+        private System.Windows.Forms.Label lblLR;
+        private System.Windows.Forms.TextBox tbPicPerEinheit;
+        private System.Windows.Forms.Label lblPicPerEinheit;
+        private System.ComponentModel.BackgroundWorker bwLoadMNIST;
+        private System.ComponentModel.BackgroundWorker bwNNLearn;
     }
 }
 
