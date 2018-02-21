@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.lblRemainingTitle = new System.Windows.Forms.Label();
+            this.lblRemainingTime = new System.Windows.Forms.Label();
             this.lblLoad = new System.Windows.Forms.Label();
             this.pbProgress = new System.Windows.Forms.ProgressBar();
             this.lblMNIST = new System.Windows.Forms.Label();
@@ -38,12 +40,36 @@
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.DimGray;
+            this.pnlMain.Controls.Add(this.lblRemainingTitle);
+            this.pnlMain.Controls.Add(this.lblRemainingTime);
             this.pnlMain.Controls.Add(this.lblLoad);
             this.pnlMain.Controls.Add(this.pbProgress);
             this.pnlMain.Location = new System.Drawing.Point(0, 49);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(399, 153);
             this.pnlMain.TabIndex = 5;
+            // 
+            // lblRemainingTitle
+            // 
+            this.lblRemainingTitle.AutoSize = true;
+            this.lblRemainingTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRemainingTitle.ForeColor = System.Drawing.Color.White;
+            this.lblRemainingTitle.Location = new System.Drawing.Point(7, 94);
+            this.lblRemainingTitle.Name = "lblRemainingTitle";
+            this.lblRemainingTitle.Size = new System.Drawing.Size(156, 20);
+            this.lblRemainingTitle.TabIndex = 5;
+            this.lblRemainingTitle.Text = "Verbleibende Zeit:";
+            // 
+            // lblRemainingTime
+            // 
+            this.lblRemainingTime.AutoSize = true;
+            this.lblRemainingTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRemainingTime.ForeColor = System.Drawing.Color.White;
+            this.lblRemainingTime.Location = new System.Drawing.Point(169, 94);
+            this.lblRemainingTime.Name = "lblRemainingTime";
+            this.lblRemainingTime.Size = new System.Drawing.Size(90, 20);
+            this.lblRemainingTime.TabIndex = 4;
+            this.lblRemainingTime.Text = "Berechne...";
             // 
             // lblLoad
             // 
@@ -53,7 +79,7 @@
             this.lblLoad.Name = "lblLoad";
             this.lblLoad.Size = new System.Drawing.Size(393, 114);
             this.lblLoad.TabIndex = 3;
-            this.lblLoad.Text = "Netzwerk wird trainiert.\r\nDies kann einige Minuten dauern...\r\n";
+            this.lblLoad.Text = "Netzwerk wird trainiert...";
             this.lblLoad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pbProgress
@@ -62,8 +88,9 @@
             this.pbProgress.Name = "pbProgress";
             this.pbProgress.Size = new System.Drawing.Size(380, 23);
             this.pbProgress.Step = 1;
-            this.pbProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.pbProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pbProgress.TabIndex = 0;
+            this.pbProgress.Click += new System.EventHandler(this.pbProgress_Click);
             // 
             // lblMNIST
             // 
@@ -93,6 +120,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Neuronales Netzwerk";
             this.pnlMain.ResumeLayout(false);
+            this.pnlMain.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -103,5 +131,7 @@
         private System.Windows.Forms.Label lblLoad;
         private System.Windows.Forms.ProgressBar pbProgress;
         private System.Windows.Forms.Label lblMNIST;
+        private System.Windows.Forms.Label lblRemainingTime;
+        private System.Windows.Forms.Label lblRemainingTitle;
     }
 }

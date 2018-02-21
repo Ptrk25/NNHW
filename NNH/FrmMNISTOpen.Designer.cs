@@ -30,8 +30,8 @@
         {
             this.lblMNIST = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.pbProgress = new System.Windows.Forms.ProgressBar();
             this.lblLoad = new System.Windows.Forms.Label();
+            this.pbProgress = new System.Windows.Forms.ProgressBar();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,15 +56,6 @@
             this.pnlMain.Size = new System.Drawing.Size(399, 153);
             this.pnlMain.TabIndex = 4;
             // 
-            // pbProgress
-            // 
-            this.pbProgress.Location = new System.Drawing.Point(7, 117);
-            this.pbProgress.Name = "pbProgress";
-            this.pbProgress.Size = new System.Drawing.Size(380, 23);
-            this.pbProgress.Step = 1;
-            this.pbProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.pbProgress.TabIndex = 0;
-            // 
             // lblLoad
             // 
             this.lblLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -76,7 +67,17 @@
             this.lblLoad.Text = "Datenbank wird verarbeitet...";
             this.lblLoad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FrmMNISTLearn
+            // pbProgress
+            // 
+            this.pbProgress.Location = new System.Drawing.Point(7, 117);
+            this.pbProgress.MarqueeAnimationSpeed = 25;
+            this.pbProgress.Name = "pbProgress";
+            this.pbProgress.Size = new System.Drawing.Size(380, 23);
+            this.pbProgress.Step = 1;
+            this.pbProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.pbProgress.TabIndex = 0;
+            // 
+            // FrmMNISTOpen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -87,7 +88,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmMNISTLearn";
+            this.Name = "FrmMNISTOpen";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "MNIST Datenbank";

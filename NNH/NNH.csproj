@@ -87,6 +87,7 @@
     <Compile Include="FrmMNISTOpen.Designer.cs">
       <DependentUpon>FrmMNISTOpen.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageProcessor.cs" />
     <Compile Include="MNISTImage.cs" />
     <Compile Include="MNISTParser.cs" />
     <Compile Include="NeuralNetwork.cs" />

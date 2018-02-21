@@ -43,11 +43,11 @@
             this.pnlMNISTHeader = new System.Windows.Forms.Panel();
             this.lblMNIST = new System.Windows.Forms.Label();
             this.pnlNN = new System.Windows.Forms.Panel();
-            this.lblErrorCount = new System.Windows.Forms.Label();
+            this.lblSuccessCount = new System.Windows.Forms.Label();
             this.lblGenCount = new System.Windows.Forms.Label();
             this.btnNNSave = new System.Windows.Forms.Button();
             this.btnNNOpen = new System.Windows.Forms.Button();
-            this.lblError = new System.Windows.Forms.Label();
+            this.lblSuccess = new System.Windows.Forms.Label();
             this.lblGen = new System.Windows.Forms.Label();
             this.pnlNNHeader = new System.Windows.Forms.Panel();
             this.lblNN = new System.Windows.Forms.Label();
@@ -310,11 +310,11 @@
             // pnlNN
             // 
             this.pnlNN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(163)))), ((int)(((byte)(219)))));
-            this.pnlNN.Controls.Add(this.lblErrorCount);
+            this.pnlNN.Controls.Add(this.lblSuccessCount);
             this.pnlNN.Controls.Add(this.lblGenCount);
             this.pnlNN.Controls.Add(this.btnNNSave);
             this.pnlNN.Controls.Add(this.btnNNOpen);
-            this.pnlNN.Controls.Add(this.lblError);
+            this.pnlNN.Controls.Add(this.lblSuccess);
             this.pnlNN.Controls.Add(this.lblGen);
             this.pnlNN.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlNN.Location = new System.Drawing.Point(0, 49);
@@ -322,15 +322,15 @@
             this.pnlNN.Size = new System.Drawing.Size(200, 208);
             this.pnlNN.TabIndex = 2;
             // 
-            // lblErrorCount
+            // lblSuccessCount
             // 
-            this.lblErrorCount.AutoSize = true;
-            this.lblErrorCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorCount.Location = new System.Drawing.Point(14, 88);
-            this.lblErrorCount.Name = "lblErrorCount";
-            this.lblErrorCount.Size = new System.Drawing.Size(36, 20);
-            this.lblErrorCount.TabIndex = 6;
-            this.lblErrorCount.Text = "0 %";
+            this.lblSuccessCount.AutoSize = true;
+            this.lblSuccessCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSuccessCount.Location = new System.Drawing.Point(14, 88);
+            this.lblSuccessCount.Name = "lblSuccessCount";
+            this.lblSuccessCount.Size = new System.Drawing.Size(36, 20);
+            this.lblSuccessCount.TabIndex = 6;
+            this.lblSuccessCount.Text = "0 %";
             // 
             // lblGenCount
             // 
@@ -345,6 +345,7 @@
             // btnNNSave
             // 
             this.btnNNSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(133)))), ((int)(((byte)(207)))));
+            this.btnNNSave.Enabled = false;
             this.btnNNSave.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnNNSave.FlatAppearance.BorderSize = 0;
             this.btnNNSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -364,6 +365,7 @@
             // btnNNOpen
             // 
             this.btnNNOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(133)))), ((int)(((byte)(207)))));
+            this.btnNNOpen.Enabled = false;
             this.btnNNOpen.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnNNOpen.FlatAppearance.BorderSize = 0;
             this.btnNNOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -379,16 +381,16 @@
             this.btnNNOpen.UseVisualStyleBackColor = false;
             this.btnNNOpen.Click += new System.EventHandler(this.btnNNOpen_Click);
             // 
-            // lblError
+            // lblSuccess
             // 
-            this.lblError.AutoSize = true;
-            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblError.ForeColor = System.Drawing.Color.Black;
-            this.lblError.Location = new System.Drawing.Point(8, 68);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(106, 20);
-            this.lblError.TabIndex = 1;
-            this.lblError.Text = "Fehlerquote";
+            this.lblSuccess.AutoSize = true;
+            this.lblSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSuccess.ForeColor = System.Drawing.Color.Black;
+            this.lblSuccess.Location = new System.Drawing.Point(8, 68);
+            this.lblSuccess.Name = "lblSuccess";
+            this.lblSuccess.Size = new System.Drawing.Size(109, 20);
+            this.lblSuccess.TabIndex = 1;
+            this.lblSuccess.Text = "Trefferquote";
             // 
             // lblGen
             // 
@@ -1005,6 +1007,7 @@
             // bwNNLearn
             // 
             this.bwNNLearn.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwNNLearn_DoWork);
+            this.bwNNLearn.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bwNNLearn_ProgressChanged);
             // 
             // FrmMain
             // 
@@ -1075,9 +1078,9 @@
         private System.Windows.Forms.Panel pnlNNHeader;
         private System.Windows.Forms.Label lblNN;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Label lblSuccess;
         private System.Windows.Forms.Label lblGenCount;
-        private System.Windows.Forms.Label lblErrorCount;
+        private System.Windows.Forms.Label lblSuccessCount;
         private System.Windows.Forms.Label lblEntriesCount;
         private System.Windows.Forms.Label lblSizeCount;
         private System.Windows.Forms.Label lblEntries;

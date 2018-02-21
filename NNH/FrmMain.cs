@@ -112,15 +112,38 @@ namespace NNH
             }
         }
 
+        private void btnNNLearn_Click(object sender, EventArgs e)
+        {
+            mNISTLearn = new FrmMNISTLearn();
+            mNISTLearn.StartPosition = FormStartPosition.CenterParent;
+            mNISTLearn.setMaxProgress(Int32.Parse(tbEinheit.Text));
+            bwNNLearn.RunWorkerAsync();
+            mNISTLearn.ShowDialog();
+
+        }
+
         private void btnNNOpen_Click(object sender, EventArgs e)
         {
-  
-            
+            OpenFileDialog ofdNN = new OpenFileDialog();
+            ofdNN.Filter = "Neuronales Netzwerk (*.nn)|*.nn";
+
+            if(ofdNN.ShowDialog() == DialogResult.OK)
+            {
+                nn_parser = new NeuralNetworkParser();
+                nn_parser.network.Load(ofdNN.FileName);
+                lblSuccessCount.Text = Math.Round(calculateNNAccuracy() * 100, 2).ToString() + " %";
+            }            
         }
 
         private void btnNNSave_Click(object sender, EventArgs e)
         {
-            
+            SaveFileDialog sfdNN = new SaveFileDialog();
+            sfdNN.Filter = "Neuronales Netzwerk (*.nn)|*.nn";
+
+            if(sfdNN.ShowDialog() == DialogResult.OK)
+            {
+                nn_parser.network.Save(sfdNN.FileName);
+            }
         }
 
         private void bwLoadMNIST_DoWork(object sender, DoWorkEventArgs e)
@@ -144,25 +167,47 @@ namespace NNH
                 lblEntriesCount.Text = mnist_parser.getEntriesCount().ToString();
                 lblSizeCount.Text = mnist_parser.getSizeInMB().ToString() + " MB";
                 btnNNLearn.Enabled = true;
+                btnNNOpen.Enabled = true;
             });
         }
 
         private void bwNNLearn_DoWork(object sender, DoWorkEventArgs e)
         {
-            List<MNISTImage> imgList = mnist_parser.GetRndImages(1000);
+            bwNNLearn.WorkerReportsProgress = true;
+
             nn_parser = new NeuralNetworkParser();
             int einheiten = Int32.Parse(tbEinheit.Text);
             int picsPerEinheit = Int32.Parse(tbPicPerEinheit.Text);
             float lr = float.Parse(tbLR.Text);
 
             for (int i = 0; i < einheiten; i++)
+            {
                 nn_parser.Train(mnist_parser.GetRndImages(picsPerEinheit), lr);
+                bwNNLearn.ReportProgress(i+1);
+            }
 
+
+            float success_rate = calculateNNAccuracy();
+
+            Invoke((MethodInvoker)delegate
+            {
+                mNISTLearn.Close();
+                lblSuccessCount.Text = Math.Round(success_rate * 100, 2).ToString() + " %";
+                lblGenCount.Text = einheiten.ToString();
+                btnNNSave.Enabled = true;
+            });
+            
+        }
+
+        private float calculateNNAccuracy()
+        {
             int success = 0;
             float maxnum = 0;
             int num = 0;
             int[] nums = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             int[] numsC = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+            List<MNISTImage> imgList = mnist_parser.GetRndImages(1000);
 
             foreach (MNISTImage img in imgList)
             {
@@ -186,24 +231,8 @@ namespace NNH
                     success++;
                 }
             }
-            float success_rate = ((float)success / (float)imgList.Count);
-
-            Invoke((MethodInvoker)delegate
-            {
-                mNISTLearn.Close();
-                lblErrorCount.Text = (100 - Math.Round(success_rate * 100, 2)).ToString() + " %";
-                lblGenCount.Text = einheiten.ToString();
-            });
-            
-        }
-
-        private void btnNNLearn_Click(object sender, EventArgs e)
-        {
-            mNISTLearn = new FrmMNISTLearn();
-            mNISTLearn.StartPosition = FormStartPosition.CenterParent;
-            bwNNLearn.RunWorkerAsync();
-            mNISTLearn.ShowDialog();
-
+        
+            return (float)success / (float)1000;
         }
 
         private void picBoxImage_MouseDown(object sender, MouseEventArgs e)
@@ -215,46 +244,38 @@ namespace NNH
 
         private void picBoxImage_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isMouseDown == true)//check to see if the mouse button is down
-
+            if (isMouseDown == true)
             {
-
-                if (lastPoint != null)//if our last point is not null, which in this case we have assigned above
-
+                if (lastPoint != null)
                 {
 
-                    if (picBoxImage.Image == null)//if no available bitmap exists on the picturebox to draw on
-
+                    if (picBoxImage.Image == null)
                     {
-                        //create a new bitmap
                         Bitmap bmp = new Bitmap(picBoxImage.Width, picBoxImage.Height);
                         Graphics g = Graphics.FromImage(bmp);
                         g.Clear(Color.White);
 
-                        picBoxImage.Image = bmp; //assign the picturebox.Image property to the bitmap created
-
+                        picBoxImage.Image = bmp; 
                     }
 
                     using (Graphics g = Graphics.FromImage(picBoxImage.Image))
 
-                    {//we need to create a Graphics object to draw on the picture box, its our main tool
-
-                        //when making a Pen object, you can just give it color only or give it color and pen size
-
-                        // g.DrawLine(new Pen(Color.Black, 10), lastPoint, e.Location);
-                        Rectangle rect = new Rectangle(lastPoint, new Size(15, 15));
-                        Brush brush = new SolidBrush(Color.Black);
-                        g.DrawEllipse(new Pen(Color.Black, 2), rect);
-                        g.FillEllipse(brush, rect);
+                    {
                         g.SmoothingMode = SmoothingMode.AntiAlias;
-                        //this is to give the drawing a more smoother, less sharper look
-
+                        g.InterpolationMode = InterpolationMode.NearestNeighbor;
+                        lastPoint.X -= 8;
+                        lastPoint.Y -= 8;
+                        //g.DrawLine(new Pen(Color.Black, 10), lastPoint, e.Location);
+                        Rectangle rect = new Rectangle(lastPoint, new Size(22, 22));
+                        Brush brush = new SolidBrush(Color.Black);
+                        
+                        g.DrawEllipse(new Pen(Color.Black, 1), rect);
+                        g.FillEllipse(brush, rect);
+                        
                     }
-
-                    picBoxImage.Invalidate();//refreshes the picturebox
-
-                    lastPoint = e.Location;//keep assigning the lastPoint to the current mouse position
-
+           
+                    picBoxImage.Invalidate();
+                    lastPoint = e.Location;
                 }
 
             }
@@ -267,7 +288,8 @@ namespace NNH
 
             if(nn_parser != null)
             {
-                Bitmap drawnPic = new Bitmap(picBoxImage.Image, 28, 28);
+                ImageProcessor imageProcessor = new ImageProcessor();
+                Bitmap drawnPic = imageProcessor.processImage(new Bitmap(picBoxImage.Image));
                 MNISTImage drawnImg = new MNISTImage(drawnPic);
 
                 Matrix<float> result = nn_parser.FeedForward(drawnImg);
@@ -294,6 +316,11 @@ namespace NNH
 
         }
 
+        private void bwNNLearn_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            mNISTLearn.updateProgress(e.ProgressPercentage);
+        }
+
         private void outputResults(Matrix<float> result)
         {
             double p0 = Math.Round(result[0, 0] * 100, 2);
@@ -307,16 +334,16 @@ namespace NNH
             double p8 = Math.Round(result[8, 0] * 100, 2);
             double p9 = Math.Round(result[9, 0] * 100, 2);
 
-            lblP0.Text = p0.ToString() + " %";
-            lblP1.Text = p1.ToString() + " %";
-            lblP2.Text = p2.ToString() + " %";
-            lblP3.Text = p3.ToString() + " %";
-            lblP4.Text = p4.ToString() + " %";
-            lblP5.Text = p5.ToString() + " %";
-            lblP6.Text = p6.ToString() + " %";
-            lblP7.Text = p7.ToString() + " %";
-            lblP8.Text = p8.ToString() + " %";
-            lblP9.Text = p9.ToString() + " %";
+            lblP0.Text = String.Format("{0:0.00} %", p0);
+            lblP1.Text = String.Format("{0:0.00} %", p1);
+            lblP2.Text = String.Format("{0:0.00} %", p2);
+            lblP3.Text = String.Format("{0:0.00} %", p3);
+            lblP4.Text = String.Format("{0:0.00} %", p4);
+            lblP5.Text = String.Format("{0:0.00} %", p5);
+            lblP6.Text = String.Format("{0:0.00} %", p6);
+            lblP7.Text = String.Format("{0:0.00} %", p7);
+            lblP8.Text = String.Format("{0:0.00} %", p8);
+            lblP9.Text = String.Format("{0:0.00} %", p9);
 
             //lblP0.BackColor = Color.FromArgb(0, Convert.ToInt32(255*p0), Convert.ToInt32(255 * p0), Convert.ToInt32(255 * p0));
         }
