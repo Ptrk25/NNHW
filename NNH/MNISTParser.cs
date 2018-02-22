@@ -101,6 +101,7 @@ namespace NNH
                 rndImages.Add(mnistImages[number]);
                 mnistImage_copy.Add(mnistImages[number]);
                 mnistImages.RemoveAt(number);
+
             }
 
             return rndImages;

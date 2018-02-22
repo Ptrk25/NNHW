@@ -33,6 +33,8 @@ namespace NNH
         private MNISTParser mnist_parser;
         private NeuralNetworkParser nn_parser;
 
+        private List<Label> numPercentageLbl;
+
         private Point lastPoint = Point.Empty;
         private bool isMouseDown = false;
         
@@ -57,9 +59,19 @@ namespace NNH
             return false;
         }
 
-        private void FrmMain_Load(object sender, EventArgs e)
+        private void FrmMain_Activated(object sender, EventArgs e)
         {
-            
+            numPercentageLbl = new List<Label>();
+            numPercentageLbl.Add(lblP0);
+            numPercentageLbl.Add(lblP1);
+            numPercentageLbl.Add(lblP2);
+            numPercentageLbl.Add(lblP3);
+            numPercentageLbl.Add(lblP4);
+            numPercentageLbl.Add(lblP5);
+            numPercentageLbl.Add(lblP6);
+            numPercentageLbl.Add(lblP7);
+            numPercentageLbl.Add(lblP8);
+            numPercentageLbl.Add(lblP9);
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -98,17 +110,7 @@ namespace NNH
                 picBoxImage.Image = null;
                 Invalidate();
                 lblRecognizedNumBig.Text = "";
-
-                lblP0.Text = "0,00 %";
-                lblP1.Text = "0,00 %";
-                lblP2.Text = "0,00 %";
-                lblP3.Text = "0,00 %";
-                lblP4.Text = "0,00 %";
-                lblP5.Text = "0,00 %";
-                lblP6.Text = "0,00 %";
-                lblP7.Text = "0,00 %";
-                lblP8.Text = "0,00 %";
-                lblP9.Text = "0,00 %";
+                clearResults();
             }
         }
 
@@ -118,8 +120,14 @@ namespace NNH
             mNISTLearn.StartPosition = FormStartPosition.CenterParent;
             mNISTLearn.setMaxProgress(Int32.Parse(tbEinheit.Text));
             bwNNLearn.RunWorkerAsync();
+            mNISTLearn.FormClosed += new FormClosedEventHandler(FormMNISTLearn_FormClosed);
             mNISTLearn.ShowDialog();
+        }
 
+        // Stop Learning if NN Learning was aborted
+        private void FormMNISTLearn_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            bwNNLearn.CancelAsync();
         }
 
         private void btnNNOpen_Click(object sender, EventArgs e)
@@ -174,6 +182,7 @@ namespace NNH
         private void bwNNLearn_DoWork(object sender, DoWorkEventArgs e)
         {
             bwNNLearn.WorkerReportsProgress = true;
+            bwNNLearn.WorkerSupportsCancellation = true;
 
             nn_parser = new NeuralNetworkParser();
             int einheiten = Int32.Parse(tbEinheit.Text);
@@ -184,8 +193,16 @@ namespace NNH
             {
                 nn_parser.Train(mnist_parser.GetRndImages(picsPerEinheit), lr);
                 bwNNLearn.ReportProgress(i+1);
+                if (bwNNLearn.CancellationPending)
+                {
+                    e.Cancel = true;
+                    Invoke((MethodInvoker)delegate
+                    {
+                        btnNNSave.Enabled = true;
+                    });
+                    return;
+                }
             }
-
 
             float success_rate = calculateNNAccuracy();
 
@@ -204,8 +221,8 @@ namespace NNH
             int success = 0;
             float maxnum = 0;
             int num = 0;
-            int[] nums = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            int[] numsC = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            //int[] nums = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            //int[] numsC = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
             List<MNISTImage> imgList = mnist_parser.GetRndImages(1000);
 
@@ -224,10 +241,10 @@ namespace NNH
 
                 }
                 maxnum = 0;
-                nums[num]++;
+                //nums[num]++;
                 if (num == img.label)
                 {
-                    numsC[num]++;
+                    //numsC[num]++;
                     success++;
                 }
             }
@@ -262,11 +279,10 @@ namespace NNH
 
                     {
                         g.SmoothingMode = SmoothingMode.AntiAlias;
-                        g.InterpolationMode = InterpolationMode.NearestNeighbor;
                         lastPoint.X -= 8;
                         lastPoint.Y -= 8;
                         //g.DrawLine(new Pen(Color.Black, 10), lastPoint, e.Location);
-                        Rectangle rect = new Rectangle(lastPoint, new Size(22, 22));
+                        Rectangle rect = new Rectangle(lastPoint, new Size(16, 16));
                         Brush brush = new SolidBrush(Color.Black);
                         
                         g.DrawEllipse(new Pen(Color.Black, 1), rect);
@@ -286,7 +302,7 @@ namespace NNH
             lastPoint = Point.Empty;
             isMouseDown = false;
 
-            if(nn_parser != null)
+            if(nn_parser != null && picBoxImage.Image != null)
             {
                 ImageProcessor imageProcessor = new ImageProcessor();
                 Bitmap drawnPic = imageProcessor.processImage(new Bitmap(picBoxImage.Image));
@@ -313,7 +329,6 @@ namespace NNH
                 lblRecognizedNumBig.Text = num.ToString();
                 outputResults(result);
             }
-
         }
 
         private void bwNNLearn_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -323,29 +338,25 @@ namespace NNH
 
         private void outputResults(Matrix<float> result)
         {
-            double p0 = Math.Round(result[0, 0] * 100, 2);
-            double p1 = Math.Round(result[1, 0] * 100, 2);
-            double p2 = Math.Round(result[2, 0] * 100, 2);
-            double p3 = Math.Round(result[3, 0] * 100, 2);
-            double p4 = Math.Round(result[4, 0] * 100, 2);
-            double p5 = Math.Round(result[5, 0] * 100, 2);
-            double p6 = Math.Round(result[6, 0] * 100, 2);
-            double p7 = Math.Round(result[7, 0] * 100, 2);
-            double p8 = Math.Round(result[8, 0] * 100, 2);
-            double p9 = Math.Round(result[9, 0] * 100, 2);
+            List<double> percentages = new List<double>();
 
-            lblP0.Text = String.Format("{0:0.00} %", p0);
-            lblP1.Text = String.Format("{0:0.00} %", p1);
-            lblP2.Text = String.Format("{0:0.00} %", p2);
-            lblP3.Text = String.Format("{0:0.00} %", p3);
-            lblP4.Text = String.Format("{0:0.00} %", p4);
-            lblP5.Text = String.Format("{0:0.00} %", p5);
-            lblP6.Text = String.Format("{0:0.00} %", p6);
-            lblP7.Text = String.Format("{0:0.00} %", p7);
-            lblP8.Text = String.Format("{0:0.00} %", p8);
-            lblP9.Text = String.Format("{0:0.00} %", p9);
+            for (int i = 0; i < 10; i++)
+                percentages.Add(Math.Round(result[i, 0] * 100, 2));
 
-            //lblP0.BackColor = Color.FromArgb(0, Convert.ToInt32(255*p0), Convert.ToInt32(255 * p0), Convert.ToInt32(255 * p0));
+            for (int i = 0; i < 10; i++)
+            {
+                numPercentageLbl[i].Text = String.Format("{0:0.00} %", percentages[i]);
+                numPercentageLbl[i].BackColor = Color.FromArgb(255, 255 - Convert.ToInt32(255 * percentages[i] / 100), 255, 255 - Convert.ToInt32(255 * percentages[i] / 100));
+            }   
+        }
+
+        private void clearResults()
+        {
+            foreach (Label lbl in numPercentageLbl)
+            {
+                lbl.Text = "0,00 %";
+                lbl.BackColor = Color.Transparent;
+            }
         }
 
     }

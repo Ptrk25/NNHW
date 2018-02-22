@@ -22,7 +22,6 @@ namespace NNH
             getBounds(img);
             img = cropImage(img);
             newImage = new Bitmap(img, 28, 28);
-            //newImage = Blur(newImage, 2);
 
             return newImage;
         }
@@ -97,14 +96,7 @@ namespace NNH
 
             return newImg;
         }
-
-       private Bitmap blurImage(Bitmap img)
-        {
-            Bitmap newImage = new Bitmap(28,28);
-
-            return newImage;
-        }
-
+        
     }
 }
 

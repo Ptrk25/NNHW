@@ -90,7 +90,6 @@
             this.pbProgress.Step = 1;
             this.pbProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pbProgress.TabIndex = 0;
-            this.pbProgress.Click += new System.EventHandler(this.pbProgress_Click);
             // 
             // lblMNIST
             // 
@@ -119,6 +118,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Neuronales Netzwerk";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMNISTLearn_FormClosing);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             this.ResumeLayout(false);

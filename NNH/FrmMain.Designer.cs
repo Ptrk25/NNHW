@@ -436,7 +436,7 @@
             this.btnNNLearn.Name = "btnNNLearn";
             this.btnNNLearn.Size = new System.Drawing.Size(129, 32);
             this.btnNNLearn.TabIndex = 3;
-            this.btnNNLearn.Text = "Lernen";
+            this.btnNNLearn.Text = "Trainieren";
             this.btnNNLearn.UseVisualStyleBackColor = false;
             this.btnNNLearn.Click += new System.EventHandler(this.btnNNLearn_Click);
             // 
@@ -1022,6 +1022,7 @@
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Handschrifterkennung";
+            this.Activated += new System.EventHandler(this.FrmMain_Activated);
             this.pnlTitlebar.ResumeLayout(false);
             this.pnlTitlebar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).EndInit();

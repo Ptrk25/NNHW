@@ -12,7 +12,7 @@ namespace NNH
 {
     public partial class FrmMNISTLearn : Form
     {
-        private int startTime, endTime, remainProgress;
+        private int remainProgress;
         private Stopwatch stopwatch;
 
         public FrmMNISTLearn()
@@ -44,9 +44,13 @@ namespace NNH
             stopwatch.Start();
         }
 
-        private void pbProgress_Click(object sender, EventArgs e)
+        private void FrmMNISTLearn_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            if(pbProgress.Value != pbProgress.Maximum)
+            {
+                var messagebox = MessageBox.Show("Möchten Sie das Training abbrechen?\nJeglicher Fortschritt wird nicht gespeichert!", "Training abbrechen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                e.Cancel = (messagebox == DialogResult.No);
+            }
         }
     }
 }

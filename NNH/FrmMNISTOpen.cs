@@ -14,6 +14,7 @@ namespace NNH
         public FrmMNISTOpen()
         {
             InitializeComponent();
+            this.ControlBox = false;
         }
     }
 }
